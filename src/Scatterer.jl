@@ -7,7 +7,7 @@ cylindrical shape.  This shape is approximated by a series of `N` discrete segme
 described by the [x, y, z] coordinates, radii, and material properties at their
 endpoints.
 
-### Parameters
+#### Parameters
 - `r` : 3x`N` matrix describing the scatterer's centerline.  Each column is the 
 location in 3-D space of one of the centerline points (these should be arranged 
 in the proper order).
@@ -61,12 +61,12 @@ length(s::Scatterer) = norm(s.r[:, 1] - s.r[:, end])
 """
 Rotate the scatterer in space, returning a rotated copy.
 
-### Parameters
+#### Parameters
 - `roll` : Angle to roll the scatterer, in degrees. Defaults to 0.
 - `tilt` : Angle to tilt the scatterer, in degrees. Defaults to 0.
 - `yaw` : Angle to yaw the scatterer, in degrees. Defaults to 0.
 
-### Returns
+#### Returns
 A Scatterer with the same shape and properties, but a new orientation.
 
 The roll, tilt, and yaw refer to rotations around the x, y, and z axes,
@@ -101,7 +101,7 @@ function DWBAintegrand(s, rr, aa, gg, hh, k)
 end
 
 scattering_function_param_docs = """
-### Parameters
+#### Parameters
 
 - `s` : Scatterer object.
 - `k` : Acoustic wavenumber vector.  Its magnitude is 2 * pi * f / c (where 
@@ -165,14 +165,14 @@ end
 """
 Calculate backscatter over a range of angles.
 
-### Parameters
+#### Parameters
 
 - `s` : Scatterer object
 - `angle1`, `angle2` : Endpoints of the angle range to calculate.
 - `k` : Acoustic wavenumber vector
 - `n` : Number of angles to calculate; defaults to 100
 
-### Returns
+#### Returns
 
 A dictionary containing elements "angles", "sigma_bs", and "TS",
 each a length-n vector.
@@ -192,7 +192,7 @@ end
 Calculate backscatter over a range of frequencies.  The insonifying sound comes
 from above (i.e., traveling in the -z direction).
 
-### Parameters
+#### Parameters
 -`s` : Scatterer object
 -`freq1`, `freq2` : Endpoints of the angle range to calculate.
 -`sound_speed` : Sound speed in the surrounding medium
@@ -215,7 +215,7 @@ end
 """
 Load a scatterer from a file on disk with comma-separated values.
 
-### Parameters
+#### Parameters
 - `filename` : String.  Path to the datafile.  This should be a standard .csv file 
 with columns for the x, y, and z coordinates of the scatterer's centerline, as well
 as the `a`, `h`, and `g` arguments to Scatterer().

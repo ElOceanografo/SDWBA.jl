@@ -9,7 +9,7 @@
 Calculate backscatter over a range of frequencies.  The insonifying sound comes
 from above (i.e., traveling in the -z direction).
 
-### Parameters
+#### Parameters
 -`s` : Scatterer object
 -`freq1`, `freq2` : Endpoints of the angle range to calculate.
 -`sound_speed` : Sound speed in the surrounding medium
@@ -20,7 +20,7 @@ Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:204](https://github.com/ElOceanografo/SDWBA.jl/tree/d3d10dff5a12998cd6ff7842a2182a90ea53a3a4/src/Scatterer.jl#L204)
+[SDWBA/src/Scatterer.jl:204](https://github.com/ElOceanografo/SDWBA.jl/tree/d06017a37540a434001d54ca732b4efce9984760/src/Scatterer.jl#L204)
 
 ---
 
@@ -29,7 +29,7 @@ Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 Calculate backscatter over a range of frequencies.  The insonifying sound comes
 from above (i.e., traveling in the -z direction).
 
-### Parameters
+#### Parameters
 -`s` : Scatterer object
 -`freq1`, `freq2` : Endpoints of the angle range to calculate.
 -`sound_speed` : Sound speed in the surrounding medium
@@ -40,7 +40,7 @@ Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:204](https://github.com/ElOceanografo/SDWBA.jl/tree/d3d10dff5a12998cd6ff7842a2182a90ea53a3a4/src/Scatterer.jl#L204)
+[SDWBA/src/Scatterer.jl:204](https://github.com/ElOceanografo/SDWBA.jl/tree/d06017a37540a434001d54ca732b4efce9984760/src/Scatterer.jl#L204)
 
 ---
 
@@ -48,7 +48,7 @@ Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 #### from_csv(filename) [¶](#method__from_csv.1)
 Load a scatterer from a file on disk with comma-separated values.
 
-### Parameters
+#### Parameters
 - `filename` : String.  Path to the datafile.  This should be a standard .csv file 
 with columns for the x, y, and z coordinates of the scatterer's centerline, as well
 as the `a`, `h`, and `g` arguments to Scatterer().
@@ -59,7 +59,7 @@ names and the values are the actual ones in the file.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:227](https://github.com/ElOceanografo/SDWBA.jl/tree/d3d10dff5a12998cd6ff7842a2182a90ea53a3a4/src/Scatterer.jl#L227)
+[SDWBA/src/Scatterer.jl:227](https://github.com/ElOceanografo/SDWBA.jl/tree/d06017a37540a434001d54ca732b4efce9984760/src/Scatterer.jl#L227)
 
 ---
 
@@ -67,7 +67,7 @@ names and the values are the actual ones in the file.
 #### from_csv(filename,  columns) [¶](#method__from_csv.2)
 Load a scatterer from a file on disk with comma-separated values.
 
-### Parameters
+#### Parameters
 - `filename` : String.  Path to the datafile.  This should be a standard .csv file 
 with columns for the x, y, and z coordinates of the scatterer's centerline, as well
 as the `a`, `h`, and `g` arguments to Scatterer().
@@ -78,7 +78,7 @@ names and the values are the actual ones in the file.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:227](https://github.com/ElOceanografo/SDWBA.jl/tree/d3d10dff5a12998cd6ff7842a2182a90ea53a3a4/src/Scatterer.jl#L227)
+[SDWBA/src/Scatterer.jl:227](https://github.com/ElOceanografo/SDWBA.jl/tree/d06017a37540a434001d54ca732b4efce9984760/src/Scatterer.jl#L227)
 
 ---
 
@@ -88,7 +88,7 @@ Return the length of the scatterer (cartesian distance from one end to the other
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:59](https://github.com/ElOceanografo/SDWBA.jl/tree/d3d10dff5a12998cd6ff7842a2182a90ea53a3a4/src/Scatterer.jl#L59)
+[SDWBA/src/Scatterer.jl:59](https://github.com/ElOceanografo/SDWBA.jl/tree/d06017a37540a434001d54ca732b4efce9984760/src/Scatterer.jl#L59)
 
 ---
 
@@ -96,12 +96,12 @@ Return the length of the scatterer (cartesian distance from one end to the other
 #### rotate(s::SDWBA.Scatterer{T}) [¶](#method__rotate.1)
 Rotate the scatterer in space, returning a rotated copy.
 
-### Parameters
+#### Parameters
 - `roll` : Angle to roll the scatterer, in degrees. Defaults to 0.
 - `tilt` : Angle to tilt the scatterer, in degrees. Defaults to 0.
 - `yaw` : Angle to yaw the scatterer, in degrees. Defaults to 0.
 
-### Returns
+#### Returns
 A Scatterer with the same shape and properties, but a new orientation.
 
 The roll, tilt, and yaw refer to rotations around the x, y, and z axes,
@@ -109,7 +109,7 @@ respectively. They are applied in that order.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:75](https://github.com/ElOceanografo/SDWBA.jl/tree/d3d10dff5a12998cd6ff7842a2182a90ea53a3a4/src/Scatterer.jl#L75)
+[SDWBA/src/Scatterer.jl:75](https://github.com/ElOceanografo/SDWBA.jl/tree/d06017a37540a434001d54ca732b4efce9984760/src/Scatterer.jl#L75)
 
 ---
 
@@ -117,21 +117,21 @@ respectively. They are applied in that order.
 #### tilt_spectrum(s::SDWBA.Scatterer{T},  angle1,  angle2,  k) [¶](#method__tilt_spectrum.1)
 Calculate backscatter over a range of angles.
 
-### Parameters
+#### Parameters
 
 - `s` : Scatterer object
 - `angle1`, `angle2` : Endpoints of the angle range to calculate.
 - `k` : Acoustic wavenumber vector
 - `n` : Number of angles to calculate; defaults to 100
 
-### Returns
+#### Returns
 
 A dictionary containing elements "angles", "sigma_bs", and "TS",
 each a length-n vector.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:180](https://github.com/ElOceanografo/SDWBA.jl/tree/d3d10dff5a12998cd6ff7842a2182a90ea53a3a4/src/Scatterer.jl#L180)
+[SDWBA/src/Scatterer.jl:180](https://github.com/ElOceanografo/SDWBA.jl/tree/d06017a37540a434001d54ca732b4efce9984760/src/Scatterer.jl#L180)
 
 ---
 
@@ -139,19 +139,19 @@ each a length-n vector.
 #### tilt_spectrum(s::SDWBA.Scatterer{T},  angle1,  angle2,  k,  n) [¶](#method__tilt_spectrum.2)
 Calculate backscatter over a range of angles.
 
-### Parameters
+#### Parameters
 
 - `s` : Scatterer object
 - `angle1`, `angle2` : Endpoints of the angle range to calculate.
 - `k` : Acoustic wavenumber vector
 - `n` : Number of angles to calculate; defaults to 100
 
-### Returns
+#### Returns
 
 A dictionary containing elements "angles", "sigma_bs", and "TS",
 each a length-n vector.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:180](https://github.com/ElOceanografo/SDWBA.jl/tree/d3d10dff5a12998cd6ff7842a2182a90ea53a3a4/src/Scatterer.jl#L180)
+[SDWBA/src/Scatterer.jl:180](https://github.com/ElOceanografo/SDWBA.jl/tree/d06017a37540a434001d54ca732b4efce9984760/src/Scatterer.jl#L180)
 
