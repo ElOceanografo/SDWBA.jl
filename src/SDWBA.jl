@@ -4,6 +4,7 @@ module SDWBA
 export Scatterer,
 	rescale,
 	rotate,
+	length,
 	form_function,
 	backscatter_xsection,
 	target_strength,
@@ -11,11 +12,11 @@ export Scatterer,
 	freq_spectrum,
 	from_csv,
 	to_csv,
-	scatterers
+	Models
 
 import Base: copy, length
 
-include("types.jl")
-include("scatterers.jl")
+include("Scatterer.jl")
+include("Models.jl")
 
 end # module

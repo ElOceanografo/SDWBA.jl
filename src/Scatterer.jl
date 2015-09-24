@@ -1,3 +1,5 @@
+import Base: show
+
 
 """
 Construct a data structure describing a fluid-like weak scatterer with a deformed
@@ -17,20 +19,31 @@ surrounding medium).
 the digitized shape has enough segments relative to the acoustic wavelength.
 
 """
+:Scatterer
 type Scatterer{T}
 	r::Array{T, 2}
 	a::Array{T, 1}
 	h::Array{T, 1}
 	g::Array{T, 1}
-	f0::T
 end
 
 function Scatterer(r::Array{Real, 2}, a::Vector{Real}, h::Vector{Real},
-	g::Vector{Real}, f0::Real)
-	return Scatterer(promote(r, a, h, g, f0)...)	
+	g::Vector{Real})
+	return Scatterer(promote(r, a, h, g)...)	
 end
 
-copy(s::Scatterer) = Scatterer(s.r, s.a, s.h, s.g, s.f0)
+# function Scatterer(r::Array{Real, 2}, a::Vector{Real}, h::Real, g::Real, f0::Real)
+# 	g1 = g * ones(a)
+# 	h1 = h * ones(a)
+# 	return Scatterer(promote(r, a, h1, g1, f0)...)	
+# end
+
+function show(io::IO, s::Scatterer)
+	println("$(typeof(s)) with $(length(s.a)) segments")
+	print("Length $(signif(length(s), 3))")
+end
+
+copy(s::Scatterer) = Scatterer(s.r, s.a, s.h, s.g)
 
 function rescale(s::Scatterer; scale=1.0, radius=1.0, x=1.0, y=1.0, z=1.0)
 	s = copy(s)
@@ -45,6 +58,20 @@ Return the length of the scatterer (cartesian distance from one end to the other
 """ 
 length(s::Scatterer) = norm(s.r[:, 1] - s.r[:, end])
 
+"""
+Rotate the scatterer in space, returning a rotated copy.
+
+### Parameters
+- `roll` : Angle to roll the scatterer, in degrees. Defaults to 0.
+- `tilt` : Angle to tilt the scatterer, in degrees. Defaults to 0.
+- `yaw` : Angle to yaw the scatterer, in degrees. Defaults to 0.
+
+### Returns
+A Scatterer with the same shape and properties, but a new orientation.
+
+The roll, tilt, and yaw refer to rotations around the x, y, and z axes,
+respectively. They are applied in that order.
+"""
 function rotate(s::Scatterer; roll=0.0, tilt=0.0, yaw=0.0)
 	roll, tilt, yaw = deg2rad([roll, tilt, yaw])
 	Rx = [1 0 0; 0 cos(roll) -sin(roll); 0 sin(roll) cos(roll)]
@@ -104,6 +131,7 @@ function form_function(s::Scatterer, k::Vector, phase_sd=0.0)
 	return fbs
 end
 
+
 """
 Calculate the backscattering cross-section (sigma_bs) of a scatterer using the (S)DWBA.
 This is the absolute square of the form function.
@@ -124,6 +152,15 @@ function target_strength{T}(s::Scatterer{T}, k::Vector{T}, phase_sd=0.0)
 	return 10 * log10(backscatter_xsection(s, k, phase_sd))
 end
 
+
+for func in [:form_function, :backscatter_xsection, :target_strength]
+	eval(quote
+		function ($func)(s::Scatterer, freq::Real, sound_speed::Real, phase_sd=0.0)
+			k = [0.0, 0.0, -2pi * freq / sound_speed]
+			return ($func)(s, k, phase_sd)
+		end
+	end)
+end
 
 """
 Calculate backscatter over a range of angles.
@@ -147,8 +184,9 @@ function tilt_spectrum(s::Scatterer, angle1, angle2, k, n=100)
 		sigma[i] = backscatter_xsection(s, k)
 	end
 	TS = 10 * log10(sigma)
-	return Dict([("angles", angless), ("sigma_bs", sigma), ("TS", TS)])
+	return Dict([("angles", angles), ("sigma_bs", sigma), ("TS", TS)])
 end
+
 
 """
 Calculate backscatter over a range of frequencies.  The insonifying sound comes
@@ -187,7 +225,7 @@ names and the values are the actual ones in the file.
 - `f0` : Standard or verified frequency for the scatterer.  Defaults to 1.0.
 """
 function from_csv(filename, columns=Dict([("x","x"),("y","y"),("z","z"), 
-		("a","a"), ("h","h"), ("g","g")]); f0=1.0)
+		("a","a"), ("h","h"), ("g","g")]))
 	data, header = readdlm(filename, ',', header=true)
 	x = data[:, vec(header .== columns["x"])]
 	y = data[:, vec(header .== columns["y"])]
@@ -196,7 +234,7 @@ function from_csv(filename, columns=Dict([("x","x"),("y","y"),("z","z"),
 	h = vec(data[:, vec(header .== columns["h"])])
 	g = vec(data[:, vec(header .== columns["g"])])
 	r = [x y z]'
-	return Scatterer(r, a, h, g, f0)
+	return Scatterer(r, a, h, g)
 end
 
 function to_csv(s::Scatterer, filename)

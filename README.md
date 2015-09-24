@@ -1,3 +1,12 @@
 # SDWBA
 
-This Julia package implements the (stochastic) distorted-wave Born approximation for simple, fluid-like scatterers. For more information on the aims and scope of this project, see the page at https://github.com/ElOceanografo/SDWBA.
+This Julia package implements the (stochastic) distorted-wave Born approximation for simple, fluid-like scatterers.
+
+To install and load it, simply run
+
+```julia
+Pkg.clone("https://github.com/ElOceanografo/SDWBA.jl.git")
+using SDWBA
+```
+
+The full documentation and function reference can be found at [http://sdwbajl.readthedocs.org/en/latest/](http://sdwbajl.readthedocs.org/en/latest/).
