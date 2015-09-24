@@ -47,7 +47,7 @@
         }, 
         {
             "location": "/Models/", 
-            "text": "SDWBA.Models\n\n\nExported\n\n\n\n\n\n\nkrill_conti \n\u00b6\n\n\nKrill shape from McGeehee et al. 1998, 'Effects of orientation on acoustic scattering\nfrom Antarctic krill at 120 kHz.' Deep-Sea Research II 45(7), 1273-1294.\n\n\nsource:\n\n\nSDWBA/src/Models.jl:25\n\n\n\n\n\n\nkrill_mcgeehee \n\u00b6\n\n\nKrill shape from Conti and Demer, 2006, 'Improved parameterization of the SDWBA for \nestimating krill target strength.' ICES Journal of Marine Science 63(5), 928-935.\n\n\nsource:\n\n\nSDWBA/src/Models.jl:19", 
+            "text": "SDWBA.Models\n\n\nExported\n\n\n\n\n\n\nkrill_conti \n\u00b6\n\n\nKrill shape from Conti and Demer, 2006, 'Improved parameterization of the SDWBA for \nestimating krill target strength.' ICES Journal of Marine Science 63(5), 928-935.\n\n\nsource:\n\n\nSDWBA/src/Models.jl:25\n\n\n\n\n\n\nkrill_mcgeehee \n\u00b6\n\n\nKrill shape from McGeehee et al. 1998, 'Effects of orientation on acoustic scattering\nfrom Antarctic krill at 120 kHz.' Deep-Sea Research II 45(7), 1273-1294.\n\n\nsource:\n\n\nSDWBA/src/Models.jl:19", 
             "title": "Included scatterers"
         }, 
         {
@@ -57,7 +57,7 @@
         }, 
         {
             "location": "/Models/#exported", 
-            "text": "krill_conti  \u00b6  Krill shape from McGeehee et al. 1998, 'Effects of orientation on acoustic scattering\nfrom Antarctic krill at 120 kHz.' Deep-Sea Research II 45(7), 1273-1294.  source:  SDWBA/src/Models.jl:25    krill_mcgeehee  \u00b6  Krill shape from Conti and Demer, 2006, 'Improved parameterization of the SDWBA for \nestimating krill target strength.' ICES Journal of Marine Science 63(5), 928-935.  source:  SDWBA/src/Models.jl:19", 
+            "text": "krill_conti  \u00b6  Krill shape from Conti and Demer, 2006, 'Improved parameterization of the SDWBA for \nestimating krill target strength.' ICES Journal of Marine Science 63(5), 928-935.  source:  SDWBA/src/Models.jl:25    krill_mcgeehee  \u00b6  Krill shape from McGeehee et al. 1998, 'Effects of orientation on acoustic scattering\nfrom Antarctic krill at 120 kHz.' Deep-Sea Research II 45(7), 1273-1294.  source:  SDWBA/src/Models.jl:19", 
             "title": "Exported"
         }
     ]

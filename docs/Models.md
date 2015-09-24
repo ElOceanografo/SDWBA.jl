@@ -6,21 +6,21 @@
 
 <a id="global__krill_conti.1" class="lexicon_definition"></a>
 #### krill_conti [¶](#global__krill_conti.1)
-Krill shape from McGeehee et al. 1998, 'Effects of orientation on acoustic scattering
-from Antarctic krill at 120 kHz.' Deep-Sea Research II 45(7), 1273-1294.
-
-
-*source:*
-[SDWBA/src/Models.jl:25](https://github.com/ElOceanografo/SDWBA.jl/tree/058f23833ac3c72bc9f30291afa2cc7ea16a515b/src/Models.jl#L25)
-
----
-
-<a id="global__krill_mcgeehee.1" class="lexicon_definition"></a>
-#### krill_mcgeehee [¶](#global__krill_mcgeehee.1)
 Krill shape from Conti and Demer, 2006, 'Improved parameterization of the SDWBA for 
 estimating krill target strength.' ICES Journal of Marine Science 63(5), 928-935.
 
 
 *source:*
-[SDWBA/src/Models.jl:19](https://github.com/ElOceanografo/SDWBA.jl/tree/058f23833ac3c72bc9f30291afa2cc7ea16a515b/src/Models.jl#L19)
+[SDWBA/src/Models.jl:25](https://github.com/ElOceanografo/SDWBA.jl/tree/b2e8b4671db60174a074ff782d01dc9c78858d06/src/Models.jl#L25)
+
+---
+
+<a id="global__krill_mcgeehee.1" class="lexicon_definition"></a>
+#### krill_mcgeehee [¶](#global__krill_mcgeehee.1)
+Krill shape from McGeehee et al. 1998, 'Effects of orientation on acoustic scattering
+from Antarctic krill at 120 kHz.' Deep-Sea Research II 45(7), 1273-1294.
+
+
+*source:*
+[SDWBA/src/Models.jl:19](https://github.com/ElOceanografo/SDWBA.jl/tree/b2e8b4671db60174a074ff782d01dc9c78858d06/src/Models.jl#L19)
 
