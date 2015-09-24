@@ -1,7 +1,7 @@
 
 module scatterers
 
-using SDWBA
+using SDWBA, Docile
 
 export krill_mcgeehee
 export krill_conti
