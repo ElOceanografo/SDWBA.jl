@@ -1,16 +1,6 @@
 # API-INDEX
 
 
-## MODULE: SDWBA.scatterers
-
----
-
-## Globals [Exported]
-
-[krill_conti](SDWBA.scatterers.md#global__krill_conti.1)  Krill shape from McGeehee et al. 1998, 'Effects of orientation on acoustic scattering
-
-[krill_mcgeehee](SDWBA.scatterers.md#global__krill_mcgeehee.1)  Krill shape from Conti and Demer, 2006, 'Improved parameterization of the SDWBA for 
-
 ## MODULE: SDWBA
 
 ---
@@ -40,4 +30,14 @@
 ## Methods [Internal]
 
 [length(s::SDWBA.Scatterer{T})](SDWBA.md#method__length.1)  Return the length of the scatterer (cartesian distance from one end to the other).
+
+## MODULE: SDWBA.scatterers
+
+---
+
+## Globals [Exported]
+
+[krill_conti](SDWBA.scatterers.md#global__krill_conti.1)  Krill shape from McGeehee et al. 1998, 'Effects of orientation on acoustic scattering
+
+[krill_mcgeehee](SDWBA.scatterers.md#global__krill_mcgeehee.1)  Krill shape from Conti and Demer, 2006, 'Improved parameterization of the SDWBA for 
 

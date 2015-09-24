@@ -6,6 +6,6 @@ theme:               readthedocs
 docs_dir:            docs
 
 pages:
-- Introduction:     sdwba.md
+- Introduction:     api/index.md
 - API:              api/SDWBA.md
 - Scatterers: api/SDWBA.scatterers.md

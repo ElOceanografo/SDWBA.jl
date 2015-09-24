@@ -21,7 +21,7 @@ Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 
 
 *source:*
-[SDWBA/src/types.jl:166](https://github.com/ElOceanografo/SDWBA.jl/tree/f9e2ccd1387a66acd59391909fd01c13127dd82f/src/types.jl#L166)
+[SDWBA/src/types.jl:166](https://github.com/ElOceanografo/SDWBA.jl/tree/7fbe2c7b477427f6a5f0b50223d5e4df5bae754f/src/types.jl#L166)
 
 ---
 
@@ -41,7 +41,7 @@ Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 
 
 *source:*
-[SDWBA/src/types.jl:166](https://github.com/ElOceanografo/SDWBA.jl/tree/f9e2ccd1387a66acd59391909fd01c13127dd82f/src/types.jl#L166)
+[SDWBA/src/types.jl:166](https://github.com/ElOceanografo/SDWBA.jl/tree/7fbe2c7b477427f6a5f0b50223d5e4df5bae754f/src/types.jl#L166)
 
 ---
 
@@ -60,7 +60,7 @@ names and the values are the actual ones in the file.
 
 
 *source:*
-[SDWBA/src/types.jl:189](https://github.com/ElOceanografo/SDWBA.jl/tree/f9e2ccd1387a66acd59391909fd01c13127dd82f/src/types.jl#L189)
+[SDWBA/src/types.jl:189](https://github.com/ElOceanografo/SDWBA.jl/tree/7fbe2c7b477427f6a5f0b50223d5e4df5bae754f/src/types.jl#L189)
 
 ---
 
@@ -79,7 +79,7 @@ names and the values are the actual ones in the file.
 
 
 *source:*
-[SDWBA/src/types.jl:189](https://github.com/ElOceanografo/SDWBA.jl/tree/f9e2ccd1387a66acd59391909fd01c13127dd82f/src/types.jl#L189)
+[SDWBA/src/types.jl:189](https://github.com/ElOceanografo/SDWBA.jl/tree/7fbe2c7b477427f6a5f0b50223d5e4df5bae754f/src/types.jl#L189)
 
 ---
 
@@ -101,7 +101,7 @@ each a length-n vector.
 
 
 *source:*
-[SDWBA/src/types.jl:143](https://github.com/ElOceanografo/SDWBA.jl/tree/f9e2ccd1387a66acd59391909fd01c13127dd82f/src/types.jl#L143)
+[SDWBA/src/types.jl:143](https://github.com/ElOceanografo/SDWBA.jl/tree/7fbe2c7b477427f6a5f0b50223d5e4df5bae754f/src/types.jl#L143)
 
 ---
 
@@ -123,7 +123,7 @@ each a length-n vector.
 
 
 *source:*
-[SDWBA/src/types.jl:143](https://github.com/ElOceanografo/SDWBA.jl/tree/f9e2ccd1387a66acd59391909fd01c13127dd82f/src/types.jl#L143)
+[SDWBA/src/types.jl:143](https://github.com/ElOceanografo/SDWBA.jl/tree/7fbe2c7b477427f6a5f0b50223d5e4df5bae754f/src/types.jl#L143)
 
 ## Types [Exported]
 
@@ -150,7 +150,7 @@ the digitized shape has enough segments relative to the acoustic wavelength.
 
 
 *source:*
-[SDWBA/src/types.jl:20](https://github.com/ElOceanografo/SDWBA.jl/tree/f9e2ccd1387a66acd59391909fd01c13127dd82f/src/types.jl#L20)
+[SDWBA/src/types.jl:20](https://github.com/ElOceanografo/SDWBA.jl/tree/7fbe2c7b477427f6a5f0b50223d5e4df5bae754f/src/types.jl#L20)
 
 
 ## Methods [Internal]
@@ -163,5 +163,5 @@ Return the length of the scatterer (cartesian distance from one end to the other
 
 
 *source:*
-[SDWBA/src/types.jl:46](https://github.com/ElOceanografo/SDWBA.jl/tree/f9e2ccd1387a66acd59391909fd01c13127dd82f/src/types.jl#L46)
+[SDWBA/src/types.jl:46](https://github.com/ElOceanografo/SDWBA.jl/tree/7fbe2c7b477427f6a5f0b50223d5e4df5bae754f/src/types.jl#L46)
 
