@@ -215,7 +215,7 @@ end
 """
 Load a scatterer from a file on disk with comma-separated values.
 
-## Parameters
+### Parameters
 - `filename` : String.  Path to the datafile.  This should be a standard .csv file 
 with columns for the x, y, and z coordinates of the scatterer's centerline, as well
 as the `a`, `h`, and `g` arguments to Scatterer().
