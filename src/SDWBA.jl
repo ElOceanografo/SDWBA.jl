@@ -7,7 +7,9 @@ export Scatterer,
 	backscatter_xsection,
 	target_strength,
 	tilt_spectrum,
-	freq_spectrum
+	freq_spectrum,
+	from_csv,
+	to_csv
 
 import Base: copy, length
 
@@ -194,6 +196,40 @@ function freq_spectrum(s::Scatterer, freq1, freq2, sound_speed, n=100)
 	end
 	TS = 10 * log10(sigma)
 	return Dict("freqs" => freqs, "sigma_bs" => sigma, "TS" => TS)
+end
+
+@doc """
+Load a scatterer from a file on disk with comma-separated values.
+
+## Parameters ##
+
+`filename` : String.  Path to the datafile.  This should be a standard .csv file 
+with columns for the x, y, and z coordinates of the scatterer's centerline, as well
+as the `a`, `h`, and `g` arguments to Scatterer().
+
+`columns` : Optional dictionary of column names. If the columns do not have the names 
+`x`, `y`, `z`, `h`, and `g`, this must be provided.  The keys are the standard column
+names and the values are the actual ones in the file.
+
+`f0` : Standard or verified frequency for the scatterer.  Defaults to 1.0.
+""" ->
+function from_csv(filename::AbstractString, columns=Dict("x"=>"x","y"=>"y","z"=>"z", 
+		"a"=>"a", "h"=>"h", "g"=>"g"), f0=1.0)
+	data, header = readdlm(filename, ',', header=true)
+	x = data[:, header .== columns["x"]]
+	y = data[:, header .== columns["y"]]
+	z = data[:, header .== columns["z"]]
+	a = vec(data[:, header .== columns["a"]])
+	h = vec(data[:, header .== columns["h"]])
+	g = vec(data[:, header .== columns["g"]])
+	r = [x y z]'
+	return Scatterer(r, a, h, g, f0)
+end
+
+function to_csv(s::Scatterer, filename::AbstractString)
+	header = ["x" "y" "z" "a" "h" "g"]
+	data = [s.r' s.a s.h s.g]
+	writedlm(expanduser(filename), [header; data], ',')
 end
 
 end # module
