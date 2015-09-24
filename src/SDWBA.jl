@@ -1,6 +1,7 @@
 module SDWBA
 
 using Docile
+@docstrings
 
 export Scatterer,
 	rescale,
