@@ -217,5 +217,3 @@ function to_csv(s::Scatterer, filename)
 	data = [s.r' s.a s.h s.g]
 	writedlm(expanduser(filename), [header; data], ',')
 end
-
-end
