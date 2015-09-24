@@ -21,6 +21,8 @@ surrounding medium).
 the digitized shape has enough segments relative to the acoustic wavelength.
 
 """ ->
+:Scatterer
+
 type Scatterer{T}
 	r::Array{T, 2}
 	a::Array{T, 1}
@@ -97,6 +99,7 @@ Calculate the complex-valued form function of a scatterer using the (S)DWBA.
 
 $scattering_function_param_docs 
 """ ->
+:form_function
 function form_function(s::Scatterer, k::Vector, phase_sd=0.0)
 	fbs = 0 + 0im
 	m, n = size(s.r)
@@ -115,6 +118,7 @@ This is the absolute square of the form function.
 
 $scattering_function_param_docs 
 """->
+:backscatter_xsection
 function backscatter_xsection{T}(s::Scatterer{T}, k::Vector{T}, phase_sd=0.0)
 	return abs2(form_function(s, k, phase_sd))
 end
@@ -125,6 +129,7 @@ Calculate the target strength (TS) of a scatterer using the (S)DWBA.  This is ju
 
 $scattering_function_param_docs
 """ ->
+:target_strength
 function target_strength{T}(s::Scatterer{T}, k::Vector{T}, phase_sd=0.0)
 	return 10 * log10(backscatter_xsection(s, k, phase_sd))
 end
@@ -146,6 +151,7 @@ Calculate backscatter over a range of angles.
 Returns: A dictionary containing elements "angles", "sigma_bs", and "TS",
 	each a length-n vector.
 """ ->
+:tilt_spectrum
 function tilt_spectrum(s::Scatterer, angle1, angle2, k, n=100)
 	angles = linspace(angle1, angle2, n)
 	sigma = zeros(angles)
@@ -173,6 +179,7 @@ from above (i.e., traveling in the -z direction).
 Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 	each a length-n vector.
 """ ->
+:freq_spectrum
 function freq_spectrum(s::Scatterer, freq1, freq2, sound_speed, n=100)
 	freqs = linspace(freq1, freq2, n)
 	sigma = zeros(freqs)
@@ -199,6 +206,7 @@ names and the values are the actual ones in the file.
 
 `f0` : Standard or verified frequency for the scatterer.  Defaults to 1.0.
 """ ->
+:from_csv
 function from_csv(filename, columns=Dict([("x","x"),("y","y"),("z","z"), 
 		("a","a"), ("h","h"), ("g","g")]); f0=1.0)
 	data, header = readdlm(filename, ',', header=true)

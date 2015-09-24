@@ -1,7 +1,6 @@
 module SDWBA
 
 using Docile
-@docstrings
 
 export Scatterer,
 	rescale,
@@ -19,5 +18,7 @@ import Base: copy, length
 
 include("types.jl")
 include("scatterers.jl")
+
+using Lexicon
 
 end # module

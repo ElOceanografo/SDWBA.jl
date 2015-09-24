@@ -1,7 +1,9 @@
 
 module scatterers
 
-using SDWBA, Docile
+using SDWBA
+
+using Docile
 
 export krill_mcgeehee
 export krill_conti
@@ -20,5 +22,7 @@ Krill shape from McGeehee et al. 1998, 'Effects of orientation on acoustic scatt
 from Antarctic krill at 120 kHz.' Deep-Sea Research II 45(7), 1273-1294.
 """ ->
 krill_conti = from_csv(DATA_DIR * "generic_krill_Conti2006.csv", f0=200e3)
+
+using Lexicon
 
 end
