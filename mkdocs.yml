@@ -8,4 +8,4 @@ docs_dir:            docs
 pages:
    - ['index.md', 'Introduction']
    - ['API.md', 'Function Reference']
-   - ['scatterers.md', 'Included scatterers']
+   - ['Models.md', 'Included scatterers']

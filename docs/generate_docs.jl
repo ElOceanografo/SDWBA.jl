@@ -1,7 +1,7 @@
 using SDWBA, Docile, Lexicon
 
 Lexicon.save("API.md", SDWBA)
-Lexicon.save("scatterers.md", SDWBA.scatterers)
+Lexicon.save("Models.md", SDWBA.Models)
 cd("../")
-run(`mkdocs build`)
+run(`mkdocs build --clean`)
 cd("docs")
