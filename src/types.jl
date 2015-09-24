@@ -1,28 +1,22 @@
 
-@doc """
+"""
 Construct a data structure describing a fluid-like weak scatterer with a deformed
 cylindrical shape.  This shape is approximated by a series of `N` discrete segments,
 described by the [x, y, z] coordinates, radii, and material properties at their
 endpoints.
 
-## Parameters ##
-
-`r` : 3x`N` matrix describing the scatterer's centerline.  Each column is the 
+### Parameters
+- `r` : 3x`N` matrix describing the scatterer's centerline.  Each column is the 
 location in 3-D space of one of the centerline points (these should be arranged 
 in the proper order).
-	
-`a` : Vector of radii, length `N`.
-	
-`h`, `g` : Vectors of sound speed and density contrasts (i.e., the ratio
+- `a` : Vector of radii, length `N`.
+- `h`, `g` : Vectors of sound speed and density contrasts (i.e., the ratio
 of sound speed or density inside the scatter to the same quantity in the
 surrounding medium).
-	
-`f0` : Default frequency for the scatterer.  Used when rescaling to ensure
+- `f0` : Default frequency for the scatterer.  Used when rescaling to ensure
 the digitized shape has enough segments relative to the acoustic wavelength.
 
-""" ->
-:Scatterer
-
+"""
 type Scatterer{T}
 	r::Array{T, 2}
 	a::Array{T, 1}
@@ -46,9 +40,9 @@ function rescale(s::Scatterer; scale=1.0, radius=1.0, x=1.0, y=1.0, z=1.0)
 	return s
 end
 
-@doc """
+"""
 Return the length of the scatterer (cartesian distance from one end to the other).
-""" ->
+""" 
 length(s::Scatterer) = norm(s.r[:, 1] - s.r[:, end])
 
 function rotate(s::Scatterer; roll=0.0, tilt=0.0, yaw=0.0)
@@ -80,25 +74,23 @@ function DWBAintegrand(s, rr, aa, gg, hh, k)
 end
 
 scattering_function_param_docs = """
-## Parameters ##
+### Parameters
 
-`s` : Scatterer object.
-
-`k` : Acoustic wavenumber vector.  Its magnitude is 2 * pi * f / c (where 
+- `s` : Scatterer object.
+- `k` : Acoustic wavenumber vector.  Its magnitude is 2 * pi * f / c (where 
 f is the frequency and c is the sound speed) and it points in
 the direction of propagation.  For downward-propagating sound waves, 
 it is [0, 0, -2pi * f / c].
-
-`phase_sd` : Standard deviation of the phase variability for each segment.
+- `phase_sd` : Standard deviation of the phase variability for each segment.
 Defaults to 0.0, that is an ordinary deterministic DWBA.  If > 0, the
 return value will be stochastic (i.e., the SDWBA).
 """
 
-@doc """
+"""
 Calculate the complex-valued form function of a scatterer using the (S)DWBA.
 
 $scattering_function_param_docs 
-""" ->
+"""
 :form_function
 function form_function(s::Scatterer, k::Vector, phase_sd=0.0)
 	fbs = 0 + 0im
@@ -112,46 +104,42 @@ function form_function(s::Scatterer, k::Vector, phase_sd=0.0)
 	return fbs
 end
 
-@doc """
+"""
 Calculate the backscattering cross-section (sigma_bs) of a scatterer using the (S)DWBA.
 This is the absolute square of the form function.
 
 $scattering_function_param_docs 
-"""->
-:backscatter_xsection
+"""
 function backscatter_xsection{T}(s::Scatterer{T}, k::Vector{T}, phase_sd=0.0)
 	return abs2(form_function(s, k, phase_sd))
 end
 
-@doc """
+"""
 Calculate the target strength (TS) of a scatterer using the (S)DWBA.  This is just
 10 * log10(sigma_bs).
 
 $scattering_function_param_docs
-""" ->
-:target_strength
+"""
 function target_strength{T}(s::Scatterer{T}, k::Vector{T}, phase_sd=0.0)
 	return 10 * log10(backscatter_xsection(s, k, phase_sd))
 end
 
 
-@doc """
+"""
 Calculate backscatter over a range of angles.
 
-## Parameters ##:
+### Parameters
 
-`s` : Scatterer object
+- `s` : Scatterer object
+- `angle1`, `angle2` : Endpoints of the angle range to calculate.
+- `k` : Acoustic wavenumber vector
+- `n` : Number of angles to calculate; defaults to 100
 
-`angle1`, `angle2` : Endpoints of the angle range to calculate.
+### Returns
 
-`k` : Acoustic wavenumber vector
-
-`n` : Number of angles to calculate; defaults to 100
-
-Returns: A dictionary containing elements "angles", "sigma_bs", and "TS",
-	each a length-n vector.
-""" ->
-:tilt_spectrum
+A dictionary containing elements "angles", "sigma_bs", and "TS",
+each a length-n vector.
+"""
 function tilt_spectrum(s::Scatterer, angle1, angle2, k, n=100)
 	angles = linspace(angle1, angle2, n)
 	sigma = zeros(angles)
@@ -162,24 +150,19 @@ function tilt_spectrum(s::Scatterer, angle1, angle2, k, n=100)
 	return Dict([("angles", angless), ("sigma_bs", sigma), ("TS", TS)])
 end
 
-@doc """
+"""
 Calculate backscatter over a range of frequencies.  The insonifying sound comes
 from above (i.e., traveling in the -z direction).
 
-## Parameters ##:
-
-`s` : Scatterer object
-
-`freq1`, `freq2` : Endpoints of the angle range to calculate.
-
-`sound_speed` : Sound speed in the surrounding medium
-
-`n` : Number of frequencies to calculate; defaults to 100
+### Parameters
+-`s` : Scatterer object
+-`freq1`, `freq2` : Endpoints of the angle range to calculate.
+-`sound_speed` : Sound speed in the surrounding medium
+-`n` : Number of frequencies to calculate; defaults to 100
 
 Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 	each a length-n vector.
-""" ->
-:freq_spectrum
+"""
 function freq_spectrum(s::Scatterer, freq1, freq2, sound_speed, n=100)
 	freqs = linspace(freq1, freq2, n)
 	sigma = zeros(freqs)
@@ -191,22 +174,18 @@ function freq_spectrum(s::Scatterer, freq1, freq2, sound_speed, n=100)
 	return Dict([("freqs", freqs), ("sigma_bs", sigma), ("TS", TS)])
 end
 
-@doc """
+"""
 Load a scatterer from a file on disk with comma-separated values.
 
-## Parameters ##
-
-`filename` : String.  Path to the datafile.  This should be a standard .csv file 
+## Parameters
+- `filename` : String.  Path to the datafile.  This should be a standard .csv file 
 with columns for the x, y, and z coordinates of the scatterer's centerline, as well
 as the `a`, `h`, and `g` arguments to Scatterer().
-
-`columns` : Optional dictionary of column names. If the columns do not have the names 
-`x`, `y`, `z`, `h`, and `g`, this must be provided.  The keys are the standard column
+- `columns` : Optional dictionary of column names. If the columns do not have the names 
+- `x`, `y`, `z`, `h`, and `g`, this must be provided.  The keys are the standard column
 names and the values are the actual ones in the file.
-
-`f0` : Standard or verified frequency for the scatterer.  Defaults to 1.0.
-""" ->
-:from_csv
+- `f0` : Standard or verified frequency for the scatterer.  Defaults to 1.0.
+"""
 function from_csv(filename, columns=Dict([("x","x"),("y","y"),("z","z"), 
 		("a","a"), ("h","h"), ("g","g")]); f0=1.0)
 	data, header = readdlm(filename, ',', header=true)
