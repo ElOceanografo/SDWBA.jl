@@ -222,7 +222,6 @@ as the `a`, `h`, and `g` arguments to Scatterer().
 - `columns` : Optional dictionary of column names. If the columns do not have the names 
 - `x`, `y`, `z`, `h`, and `g`, this must be provided.  The keys are the standard column
 names and the values are the actual ones in the file.
-- `f0` : Standard or verified frequency for the scatterer.  Defaults to 1.0.
 """
 function from_csv(filename, columns=Dict([("x","x"),("y","y"),("z","z"), 
 		("a","a"), ("h","h"), ("g","g")]))
