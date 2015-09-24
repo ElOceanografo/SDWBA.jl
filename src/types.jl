@@ -202,12 +202,12 @@ names and the values are the actual ones in the file.
 function from_csv(filename, columns=Dict([("x","x"),("y","y"),("z","z"), 
 		("a","a"), ("h","h"), ("g","g")]); f0=1.0)
 	data, header = readdlm(filename, ',', header=true)
-	x = data[:, header .== columns["x"]]
-	y = data[:, header .== columns["y"]]
-	z = data[:, header .== columns["z"]]
-	a = vec(data[:, header .== columns["a"]])
-	h = vec(data[:, header .== columns["h"]])
-	g = vec(data[:, header .== columns["g"]])
+	x = data[:, vec(header .== columns["x"])]
+	y = data[:, vec(header .== columns["y"])]
+	z = data[:, vec(header .== columns["z"])]
+	a = vec(data[:, vec(header .== columns["a"])])
+	h = vec(data[:, vec(header .== columns["h"])])
+	g = vec(data[:, vec(header .== columns["g"])])
 	r = [x y z]'
 	return Scatterer(r, a, h, g, f0)
 end
