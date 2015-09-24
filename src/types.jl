@@ -199,8 +199,8 @@ names and the values are the actual ones in the file.
 
 `f0` : Standard or verified frequency for the scatterer.  Defaults to 1.0.
 """ ->
-function from_csv(filename, columns=Dict("x"=>"x","y"=>"y","z"=>"z", 
-		"a"=>"a", "h"=>"h", "g"=>"g"); f0=1.0)
+function from_csv(filename, columns=Dict([("x","x"),("y","y"),("z","z"), 
+		("a","a"), ("h","h"), ("g","g")]); f0=1.0)
 	data, header = readdlm(filename, ',', header=true)
 	x = data[:, header .== columns["x"]]
 	y = data[:, header .== columns["y"]]
