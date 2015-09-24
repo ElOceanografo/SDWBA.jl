@@ -153,7 +153,7 @@ function tilt_spectrum(s::Scatterer, angle1, angle2, k, n=100)
 		sigma[i] = backscatter_xsection(s, k)
 	end
 	TS = 10 * log10(sigma)
-	return Dict("angle" => angles, "sigma_bs" => sigma, "TS" => TS)
+	return Dict([("angles", angless), ("sigma_bs", sigma), ("TS", TS)])
 end
 
 @doc """
@@ -181,7 +181,7 @@ function freq_spectrum(s::Scatterer, freq1, freq2, sound_speed, n=100)
 		sigma[i] = backscatter_xsection(s, k)
 	end
 	TS = 10 * log10(sigma)
-	return Dict("freqs" => freqs, "sigma_bs" => sigma, "TS" => TS)
+	return Dict([("freqs", freqs), ("sigma_bs", sigma), ("TS", TS)])
 end
 
 @doc """
@@ -216,4 +216,6 @@ function to_csv(s::Scatterer, filename)
 	header = ["x" "y" "z" "a" "h" "g"]
 	data = [s.r' s.a s.h s.g]
 	writedlm(expanduser(filename), [header; data], ',')
+end
+
 end
