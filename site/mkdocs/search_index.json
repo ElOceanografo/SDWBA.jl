@@ -2,13 +2,23 @@
     "docs": [
         {
             "location": "/api/", 
-            "text": "API-INDEX\n\n\nMODULE: SDWBA\n\n\n\n\nMethods [Exported]\n\n\nfreq_spectrum(s::SDWBA.Scatterer{T},  freq1,  freq2,  sound_speed)\n  Calculate backscatter over a range of frequencies.  The insonifying sound comes\n\n\nfreq_spectrum(s::SDWBA.Scatterer{T},  freq1,  freq2,  sound_speed,  n)\n  Calculate backscatter over a range of frequencies.  The insonifying sound comes\n\n\nfrom_csv(filename)\n  Load a scatterer from a file on disk with comma-separated values.\n\n\nfrom_csv(filename,  columns)\n  Load a scatterer from a file on disk with comma-separated values.\n\n\ntilt_spectrum(s::SDWBA.Scatterer{T},  angle1,  angle2,  k)\n  Calculate backscatter over a range of angles.\n\n\ntilt_spectrum(s::SDWBA.Scatterer{T},  angle1,  angle2,  k,  n)\n  Calculate backscatter over a range of angles.\n\n\n\n\nTypes [Exported]\n\n\nSDWBA.Scatterer{T}\n  Construct a data structure describing a fluid-like weak scatterer with a deformed\n\n\n\n\nMethods [Internal]\n\n\nlength(s::SDWBA.Scatterer{T})\n  Return the length of the scatterer (cartesian distance from one end to the other).\n\n\nMODULE: SDWBA.scatterers\n\n\n\n\nGlobals [Exported]\n\n\nkrill_conti\n  Krill shape from McGeehee et al. 1998, 'Effects of orientation on acoustic scattering\n\n\nkrill_mcgeehee\n  Krill shape from Conti and Demer, 2006, 'Improved parameterization of the SDWBA for", 
+            "text": "API-INDEX\n\n\nMODULE: SDWBA.scatterers\n\n\n\n\nGlobals [Exported]\n\n\nkrill_conti\n  Krill shape from McGeehee et al. 1998, 'Effects of orientation on acoustic scattering\n\n\nkrill_mcgeehee\n  Krill shape from Conti and Demer, 2006, 'Improved parameterization of the SDWBA for \n\n\nMODULE: SDWBA\n\n\n\n\nMethods [Exported]\n\n\nfreq_spectrum(s::SDWBA.Scatterer{T},  freq1,  freq2,  sound_speed)\n  Calculate backscatter over a range of frequencies.  The insonifying sound comes\n\n\nfreq_spectrum(s::SDWBA.Scatterer{T},  freq1,  freq2,  sound_speed,  n)\n  Calculate backscatter over a range of frequencies.  The insonifying sound comes\n\n\nfrom_csv(filename)\n  Load a scatterer from a file on disk with comma-separated values.\n\n\nfrom_csv(filename,  columns)\n  Load a scatterer from a file on disk with comma-separated values.\n\n\ntilt_spectrum(s::SDWBA.Scatterer{T},  angle1,  angle2,  k)\n  Calculate backscatter over a range of angles.\n\n\ntilt_spectrum(s::SDWBA.Scatterer{T},  angle1,  angle2,  k,  n)\n  Calculate backscatter over a range of angles.\n\n\n\n\nTypes [Exported]\n\n\nSDWBA.Scatterer{T}\n  Construct a data structure describing a fluid-like weak scatterer with a deformed\n\n\n\n\nMethods [Internal]\n\n\nlength(s::SDWBA.Scatterer{T})\n  Return the length of the scatterer (cartesian distance from one end to the other).", 
             "title": "Introduction"
         }, 
         {
             "location": "/api/#api-index", 
             "text": "", 
             "title": "API-INDEX"
+        }, 
+        {
+            "location": "/api/#module-sdwbascatterers", 
+            "text": "", 
+            "title": "MODULE: SDWBA.scatterers"
+        }, 
+        {
+            "location": "/api/#globals-exported", 
+            "text": "krill_conti   Krill shape from McGeehee et al. 1998, 'Effects of orientation on acoustic scattering  krill_mcgeehee   Krill shape from Conti and Demer, 2006, 'Improved parameterization of the SDWBA for", 
+            "title": "Globals [Exported]"
         }, 
         {
             "location": "/api/#module-sdwba", 
@@ -29,16 +39,6 @@
             "location": "/api/#methods-internal", 
             "text": "length(s::SDWBA.Scatterer{T})   Return the length of the scatterer (cartesian distance from one end to the other).", 
             "title": "Methods [Internal]"
-        }, 
-        {
-            "location": "/api/#module-sdwbascatterers", 
-            "text": "", 
-            "title": "MODULE: SDWBA.scatterers"
-        }, 
-        {
-            "location": "/api/#globals-exported", 
-            "text": "krill_conti   Krill shape from McGeehee et al. 1998, 'Effects of orientation on acoustic scattering  krill_mcgeehee   Krill shape from Conti and Demer, 2006, 'Improved parameterization of the SDWBA for", 
-            "title": "Globals [Exported]"
         }, 
         {
             "location": "/api/SDWBA/", 
