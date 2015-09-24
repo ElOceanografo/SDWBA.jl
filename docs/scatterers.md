@@ -1,7 +1,6 @@
 # SDWBA.scatterers
 
-
-## Globals [Exported]
+## Exported
 
 ---
 
@@ -12,7 +11,7 @@ from Antarctic krill at 120 kHz.' Deep-Sea Research II 45(7), 1273-1294.
 
 
 *source:*
-[SDWBA/src/scatterers.jl:25](https://github.com/ElOceanografo/SDWBA.jl/tree/a672b267aec8c1857022ec5e4c34b6621ff12cbf/src/scatterers.jl#L25)
+[SDWBA/src/scatterers.jl:25](https://github.com/ElOceanografo/SDWBA.jl/tree/f4a75c2ff25dfc4e84e8c8bef16c51241019e9b9/src/scatterers.jl#L25)
 
 ---
 
@@ -23,5 +22,5 @@ estimating krill target strength.' ICES Journal of Marine Science 63(5), 928-935
 
 
 *source:*
-[SDWBA/src/scatterers.jl:19](https://github.com/ElOceanografo/SDWBA.jl/tree/a672b267aec8c1857022ec5e4c34b6621ff12cbf/src/scatterers.jl#L19)
+[SDWBA/src/scatterers.jl:19](https://github.com/ElOceanografo/SDWBA.jl/tree/f4a75c2ff25dfc4e84e8c8bef16c51241019e9b9/src/scatterers.jl#L19)
 
