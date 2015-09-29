@@ -89,14 +89,14 @@ function DWBAintegrand(s, rr, aa, gg, hh, k)
 	g = gg[1] + s * diff(gg)[1]
 	h = hh[1] + s * diff(hh)[1]
 	alphatilt = acos(dot(k, r) / (norm(k) * norm(r)))
-	betatilt = abs(alphatilt - pi/2)
-	gammagamma = 1 / (g * h^2) + 1 / g - 2
-	if abs(abs(betatilt) - pi/2) < 1e-10
+	betatilt = abs(alphatilt - pi/2.0)
+	gammagamma = 1.0 / (g * h^2.0) + 1 / g - 2.0
+	if abs(abs(betatilt) - pi/2.0) < 1e-10
 		bessy = norm(k) * a / h
 	else
-		bessy = besselj1(2*norm(k) * a / h * cos(betatilt)) / cos(betatilt)
+		bessy = besselj1(2.0*norm(k) * a / h * cos(betatilt)) / cos(betatilt)
 	end
-	return (norm(k) / 4 * gammagamma * exp(2im * dot(k,r) / h) * a * 
+	return (norm(k) / 4.0 * gammagamma * exp(2.0 * im * dot(k,r) / h) * a * 
 		bessy * norm(diff(rr, 2)))
 end
 
