@@ -20,7 +20,7 @@ Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:204](https://github.com/ElOceanografo/SDWBA.jl/tree/d06017a37540a434001d54ca732b4efce9984760/src/Scatterer.jl#L204)
+[SDWBA/src/Scatterer.jl:204](https://github.com/ElOceanografo/SDWBA.jl/tree/dcdfc10c036936bfa6fc18ef434fa71d1f8bf242/src/Scatterer.jl#L204)
 
 ---
 
@@ -40,7 +40,7 @@ Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:204](https://github.com/ElOceanografo/SDWBA.jl/tree/d06017a37540a434001d54ca732b4efce9984760/src/Scatterer.jl#L204)
+[SDWBA/src/Scatterer.jl:204](https://github.com/ElOceanografo/SDWBA.jl/tree/dcdfc10c036936bfa6fc18ef434fa71d1f8bf242/src/Scatterer.jl#L204)
 
 ---
 
@@ -55,11 +55,10 @@ as the `a`, `h`, and `g` arguments to Scatterer().
 - `columns` : Optional dictionary of column names. If the columns do not have the names 
 - `x`, `y`, `z`, `h`, and `g`, this must be provided.  The keys are the standard column
 names and the values are the actual ones in the file.
-- `f0` : Standard or verified frequency for the scatterer.  Defaults to 1.0.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:227](https://github.com/ElOceanografo/SDWBA.jl/tree/d06017a37540a434001d54ca732b4efce9984760/src/Scatterer.jl#L227)
+[SDWBA/src/Scatterer.jl:226](https://github.com/ElOceanografo/SDWBA.jl/tree/dcdfc10c036936bfa6fc18ef434fa71d1f8bf242/src/Scatterer.jl#L226)
 
 ---
 
@@ -74,11 +73,10 @@ as the `a`, `h`, and `g` arguments to Scatterer().
 - `columns` : Optional dictionary of column names. If the columns do not have the names 
 - `x`, `y`, `z`, `h`, and `g`, this must be provided.  The keys are the standard column
 names and the values are the actual ones in the file.
-- `f0` : Standard or verified frequency for the scatterer.  Defaults to 1.0.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:227](https://github.com/ElOceanografo/SDWBA.jl/tree/d06017a37540a434001d54ca732b4efce9984760/src/Scatterer.jl#L227)
+[SDWBA/src/Scatterer.jl:226](https://github.com/ElOceanografo/SDWBA.jl/tree/dcdfc10c036936bfa6fc18ef434fa71d1f8bf242/src/Scatterer.jl#L226)
 
 ---
 
@@ -88,7 +86,7 @@ Return the length of the scatterer (cartesian distance from one end to the other
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:59](https://github.com/ElOceanografo/SDWBA.jl/tree/d06017a37540a434001d54ca732b4efce9984760/src/Scatterer.jl#L59)
+[SDWBA/src/Scatterer.jl:59](https://github.com/ElOceanografo/SDWBA.jl/tree/dcdfc10c036936bfa6fc18ef434fa71d1f8bf242/src/Scatterer.jl#L59)
 
 ---
 
@@ -109,7 +107,7 @@ respectively. They are applied in that order.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:75](https://github.com/ElOceanografo/SDWBA.jl/tree/d06017a37540a434001d54ca732b4efce9984760/src/Scatterer.jl#L75)
+[SDWBA/src/Scatterer.jl:75](https://github.com/ElOceanografo/SDWBA.jl/tree/dcdfc10c036936bfa6fc18ef434fa71d1f8bf242/src/Scatterer.jl#L75)
 
 ---
 
@@ -131,7 +129,7 @@ each a length-n vector.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:180](https://github.com/ElOceanografo/SDWBA.jl/tree/d06017a37540a434001d54ca732b4efce9984760/src/Scatterer.jl#L180)
+[SDWBA/src/Scatterer.jl:180](https://github.com/ElOceanografo/SDWBA.jl/tree/dcdfc10c036936bfa6fc18ef434fa71d1f8bf242/src/Scatterer.jl#L180)
 
 ---
 
@@ -153,5 +151,5 @@ each a length-n vector.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:180](https://github.com/ElOceanografo/SDWBA.jl/tree/d06017a37540a434001d54ca732b4efce9984760/src/Scatterer.jl#L180)
+[SDWBA/src/Scatterer.jl:180](https://github.com/ElOceanografo/SDWBA.jl/tree/dcdfc10c036936bfa6fc18ef434fa71d1f8bf242/src/Scatterer.jl#L180)
 

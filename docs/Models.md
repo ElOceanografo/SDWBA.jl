@@ -11,7 +11,7 @@ estimating krill target strength.' ICES Journal of Marine Science 63(5), 928-935
 
 
 *source:*
-[SDWBA/src/Models.jl:25](https://github.com/ElOceanografo/SDWBA.jl/tree/d06017a37540a434001d54ca732b4efce9984760/src/Models.jl#L25)
+[SDWBA/src/Models.jl:25](https://github.com/ElOceanografo/SDWBA.jl/tree/dcdfc10c036936bfa6fc18ef434fa71d1f8bf242/src/Models.jl#L25)
 
 ---
 
@@ -22,5 +22,5 @@ from Antarctic krill at 120 kHz.' Deep-Sea Research II 45(7), 1273-1294.
 
 
 *source:*
-[SDWBA/src/Models.jl:19](https://github.com/ElOceanografo/SDWBA.jl/tree/d06017a37540a434001d54ca732b4efce9984760/src/Models.jl#L19)
+[SDWBA/src/Models.jl:19](https://github.com/ElOceanografo/SDWBA.jl/tree/dcdfc10c036936bfa6fc18ef434fa71d1f8bf242/src/Models.jl#L19)
 
