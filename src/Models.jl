@@ -8,6 +8,7 @@ using SDWBA
 
 export krill_mcgeehee
 export krill_conti
+export sandeel
 
 DATA_DIR = joinpath(dirname(@__FILE__), "data/")
 
@@ -24,5 +25,6 @@ estimating krill target strength.' ICES Journal of Marine Science 63(5), 928-935
 """
 krill_conti = from_csv(joinpath(DATA_DIR, "generic_krill_Conti2006.csv"))
 
+sandeel = from_csv(joinpath(DATA_DIR, "sand_eel.csv"))
 
 end
