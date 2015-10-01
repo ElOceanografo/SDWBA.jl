@@ -53,6 +53,8 @@ function rescale(s::Scatterer; scale=1.0, radius=1.0, x=1.0, y=1.0, z=1.0)
 	return s
 end
 
+rescale(s::Scatterer, scale) = rescale(s, scale=scale)
+
 """
 Return the length of the scatterer (cartesian distance from one end to the other).
 """ 
@@ -181,7 +183,8 @@ function tilt_spectrum(s::Scatterer, angle1, angle2, k, n=100)
 	angles = linspace(angle1, angle2, n)
 	sigma = zeros(angles)
 	for i in 1:n
-		sigma[i] = backscatter_xsection(s, k)
+		tilt = angles[i]
+		sigma[i] = backscatter_xsection(rotate(s, tilt=tilt), k)
 	end
 	TS = 10 * log10(sigma)
 	return Dict([("angles", angles), ("sigma_bs", sigma), ("TS", TS)])
