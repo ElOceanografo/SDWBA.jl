@@ -27,9 +27,14 @@ estimating krill target strength.' ICES Journal of Marine Science 63(5), 928-935
 """
 krill_conti = from_csv(joinpath(DATA_DIR, "generic_krill_Conti2006.csv"))
 
-<<<<<<< HEAD
+"""
+Generic sand eel/sand lance shape (Ammodytes spp.).  Shape is taken from illustration in 
+Bigelow and Schroeder, 'Fishes of the Gulf of Maine.'  Material properties from 
+Yasuma et al. (2009), 'Density and sound-speed contrasts, and target strength of 
+Japanese sandeel Ammodytes personatus.' Fisheries Science 75 (3) 545-552.
+"""
 sandeel = from_csv(joinpath(DATA_DIR, "sand_eel.csv"))
-=======
+
 """
 Generic calanoid copepod shape, 1 mm long, with g and h for "typical" marine zooplankton
 (both 1.04, as per Stanton and Chu 2000, 'Review and recommendations for the modelling 
@@ -40,6 +45,5 @@ calanoid_copepod = from_csv(joinpath(DATA_DIR, "generic_acartia.csv"))
 
 # script defines daphnia shape
 include("data/daphnia.jl")
->>>>>>> master
 
 end
