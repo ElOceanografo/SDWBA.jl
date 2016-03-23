@@ -63,15 +63,16 @@ z = (rho_c - a) * cos(curvature_angle) - origin[2]
 
 
 bent_cylinder = Scatterer(
-	[x zeros(n_segments) z]',
+	[x'; zeros(1, n_segments); z'],
 	a * ones(n_segments),
 	h * ones(n_segments),
 	g * ones(n_segments),
+	400e3
 )
 
 dwba = freq_spectrum(bent_cylinder, freq[1], freq[end], c1, length(k1))
-# semilogx(freq, TS_s)
-# semilogx(dwba["freqs"], dwba["TS"])
+# plot(freq, TS_s)
+# plot(dwba["freq"], dwba["TS"])
 
 
 @assert dwba["TS"][1:10] == [-146.4384727146246,-134.3981674296699,-127.35600801470818,
