@@ -110,8 +110,8 @@ scattering_function_param_docs = """
 f is the frequency and c is the sound speed) and it points in
 the direction of propagation.  For downward-propagating sound waves, 
 it is [0, 0, -2pi * f / c].
-- `phase_sd` : Standard deviation of the phase variability for each segment.
-Defaults to 0.0, that is an ordinary deterministic DWBA.  If > 0, the
+- `phase_sd` : Standard deviation of the phase variability for each segment (in radians).
+Defaults to 0.0, that is, an ordinary deterministic DWBA.  If > 0, the
 return value will be stochastic (i.e., the SDWBA).
 """
 
@@ -164,6 +164,7 @@ for func in [:form_function, :backscatter_xsection, :target_strength]
 	end)
 end
 
+
 """
 Calculate backscatter over a range of angles.
 
@@ -196,10 +197,10 @@ Calculate backscatter over a range of frequencies.  The insonifying sound comes
 from above (i.e., traveling in the -z direction).
 
 #### Parameters
--`s` : Scatterer object
--`freq1`, `freq2` : Endpoints of the angle range to calculate.
--`sound_speed` : Sound speed in the surrounding medium
--`n` : Number of frequencies to calculate; defaults to 100
+- `s` : Scatterer object
+- `freq1`, `freq2` : Endpoints of the angle range to calculate.
+- `sound_speed` : Sound speed in the surrounding medium
+- `n` : Number of frequencies to calculate; defaults to 100
 
 Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 	each a length-n vector.
