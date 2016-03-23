@@ -13,7 +13,7 @@ ICES Journal of Marine Science 57, 793-807).
 
 
 *source:*
-[SDWBA/src/Models.jl:37](https://github.com/ElOceanografo/SDWBA.jl/tree/c3f676e74cb91c9b4f1fb939b9a54c4a051754c5/src/Models.jl#L37)
+[SDWBA/src/Models.jl:46](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Models.jl#L46)
 
 ---
 
@@ -24,7 +24,7 @@ estimating krill target strength.' ICES Journal of Marine Science 63(5), 928-935
 
 
 *source:*
-[SDWBA/src/Models.jl:27](https://github.com/ElOceanografo/SDWBA.jl/tree/c3f676e74cb91c9b4f1fb939b9a54c4a051754c5/src/Models.jl#L27)
+[SDWBA/src/Models.jl:28](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Models.jl#L28)
 
 ---
 
@@ -35,5 +35,18 @@ from Antarctic krill at 120 kHz.' Deep-Sea Research II 45(7), 1273-1294.
 
 
 *source:*
-[SDWBA/src/Models.jl:21](https://github.com/ElOceanografo/SDWBA.jl/tree/c3f676e74cb91c9b4f1fb939b9a54c4a051754c5/src/Models.jl#L21)
+[SDWBA/src/Models.jl:22](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Models.jl#L22)
+
+---
+
+<a id="global__sandeel.1" class="lexicon_definition"></a>
+#### sandeel [¶](#global__sandeel.1)
+Generic sand eel/sand lance shape (Ammodytes spp.).  Shape is taken from illustration in 
+Bigelow and Schroeder, 'Fishes of the Gulf of Maine.'  Material properties from 
+Yasuma et al. (2009), 'Density and sound-speed contrasts, and target strength of 
+Japanese sandeel Ammodytes personatus.' Fisheries Science 75 (3) 545-552.
+
+
+*source:*
+[SDWBA/src/Models.jl:38](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Models.jl#L38)
 

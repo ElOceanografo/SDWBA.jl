@@ -20,7 +20,7 @@ Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:208](https://github.com/ElOceanografo/SDWBA.jl/tree/c3f676e74cb91c9b4f1fb939b9a54c4a051754c5/src/Scatterer.jl#L208)
+[SDWBA/src/Scatterer.jl:208](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L208)
 
 ---
 
@@ -40,7 +40,7 @@ Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:208](https://github.com/ElOceanografo/SDWBA.jl/tree/c3f676e74cb91c9b4f1fb939b9a54c4a051754c5/src/Scatterer.jl#L208)
+[SDWBA/src/Scatterer.jl:208](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L208)
 
 ---
 
@@ -58,7 +58,7 @@ names and the values are the actual ones in the file.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:230](https://github.com/ElOceanografo/SDWBA.jl/tree/c3f676e74cb91c9b4f1fb939b9a54c4a051754c5/src/Scatterer.jl#L230)
+[SDWBA/src/Scatterer.jl:230](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L230)
 
 ---
 
@@ -76,7 +76,7 @@ names and the values are the actual ones in the file.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:230](https://github.com/ElOceanografo/SDWBA.jl/tree/c3f676e74cb91c9b4f1fb939b9a54c4a051754c5/src/Scatterer.jl#L230)
+[SDWBA/src/Scatterer.jl:230](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L230)
 
 ---
 
@@ -86,7 +86,7 @@ Return the length of the scatterer (cartesian distance from one end to the other
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:61](https://github.com/ElOceanografo/SDWBA.jl/tree/c3f676e74cb91c9b4f1fb939b9a54c4a051754c5/src/Scatterer.jl#L61)
+[SDWBA/src/Scatterer.jl:61](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L61)
 
 ---
 
@@ -107,7 +107,7 @@ respectively. They are applied in that order.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:77](https://github.com/ElOceanografo/SDWBA.jl/tree/c3f676e74cb91c9b4f1fb939b9a54c4a051754c5/src/Scatterer.jl#L77)
+[SDWBA/src/Scatterer.jl:77](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L77)
 
 ---
 
@@ -129,7 +129,7 @@ each a length-n vector.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:183](https://github.com/ElOceanografo/SDWBA.jl/tree/c3f676e74cb91c9b4f1fb939b9a54c4a051754c5/src/Scatterer.jl#L183)
+[SDWBA/src/Scatterer.jl:183](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L183)
 
 ---
 
@@ -151,5 +151,5 @@ each a length-n vector.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:183](https://github.com/ElOceanografo/SDWBA.jl/tree/c3f676e74cb91c9b4f1fb939b9a54c4a051754c5/src/Scatterer.jl#L183)
+[SDWBA/src/Scatterer.jl:183](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L183)
 

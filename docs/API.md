@@ -10,17 +10,17 @@ Calculate backscatter over a range of frequencies.  The insonifying sound comes
 from above (i.e., traveling in the -z direction).
 
 #### Parameters
--`s` : Scatterer object
--`freq1`, `freq2` : Endpoints of the angle range to calculate.
--`sound_speed` : Sound speed in the surrounding medium
--`n` : Number of frequencies to calculate; defaults to 100
+- `s` : Scatterer object
+- `freq1`, `freq2` : Endpoints of the angle range to calculate.
+- `sound_speed` : Sound speed in the surrounding medium
+- `n` : Number of frequencies to calculate; defaults to 100
 
 Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 	each a length-n vector.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:204](https://github.com/ElOceanografo/SDWBA.jl/tree/dcdfc10c036936bfa6fc18ef434fa71d1f8bf242/src/Scatterer.jl#L204)
+[SDWBA/src/Scatterer.jl:208](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L208)
 
 ---
 
@@ -30,17 +30,17 @@ Calculate backscatter over a range of frequencies.  The insonifying sound comes
 from above (i.e., traveling in the -z direction).
 
 #### Parameters
--`s` : Scatterer object
--`freq1`, `freq2` : Endpoints of the angle range to calculate.
--`sound_speed` : Sound speed in the surrounding medium
--`n` : Number of frequencies to calculate; defaults to 100
+- `s` : Scatterer object
+- `freq1`, `freq2` : Endpoints of the angle range to calculate.
+- `sound_speed` : Sound speed in the surrounding medium
+- `n` : Number of frequencies to calculate; defaults to 100
 
 Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 	each a length-n vector.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:204](https://github.com/ElOceanografo/SDWBA.jl/tree/dcdfc10c036936bfa6fc18ef434fa71d1f8bf242/src/Scatterer.jl#L204)
+[SDWBA/src/Scatterer.jl:208](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L208)
 
 ---
 
@@ -58,7 +58,7 @@ names and the values are the actual ones in the file.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:226](https://github.com/ElOceanografo/SDWBA.jl/tree/dcdfc10c036936bfa6fc18ef434fa71d1f8bf242/src/Scatterer.jl#L226)
+[SDWBA/src/Scatterer.jl:230](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L230)
 
 ---
 
@@ -76,7 +76,7 @@ names and the values are the actual ones in the file.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:226](https://github.com/ElOceanografo/SDWBA.jl/tree/dcdfc10c036936bfa6fc18ef434fa71d1f8bf242/src/Scatterer.jl#L226)
+[SDWBA/src/Scatterer.jl:230](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L230)
 
 ---
 
@@ -86,7 +86,7 @@ Return the length of the scatterer (cartesian distance from one end to the other
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:59](https://github.com/ElOceanografo/SDWBA.jl/tree/dcdfc10c036936bfa6fc18ef434fa71d1f8bf242/src/Scatterer.jl#L59)
+[SDWBA/src/Scatterer.jl:61](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L61)
 
 ---
 
@@ -107,7 +107,7 @@ respectively. They are applied in that order.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:75](https://github.com/ElOceanografo/SDWBA.jl/tree/dcdfc10c036936bfa6fc18ef434fa71d1f8bf242/src/Scatterer.jl#L75)
+[SDWBA/src/Scatterer.jl:77](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L77)
 
 ---
 
@@ -129,7 +129,7 @@ each a length-n vector.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:180](https://github.com/ElOceanografo/SDWBA.jl/tree/dcdfc10c036936bfa6fc18ef434fa71d1f8bf242/src/Scatterer.jl#L180)
+[SDWBA/src/Scatterer.jl:183](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L183)
 
 ---
 
@@ -151,5 +151,5 @@ each a length-n vector.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:180](https://github.com/ElOceanografo/SDWBA.jl/tree/dcdfc10c036936bfa6fc18ef434fa71d1f8bf242/src/Scatterer.jl#L180)
+[SDWBA/src/Scatterer.jl:183](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L183)
 
