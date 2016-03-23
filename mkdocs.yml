@@ -6,6 +6,6 @@ theme:               readthedocs
 docs_dir:            docs
 
 pages:
-   - ['index.md', 'Introduction']
-   - ['API.md', 'Function Reference']
-   - ['Models.md', 'Included scatterers']
+   - 'Introduction' : 'index.md'
+   - 'Function Reference' : 'API.md'
+   - 'Included scatterers' : 'Models.md'

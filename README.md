@@ -1,5 +1,7 @@
 # SDWBA
 
+[![Build Status](https://travis-ci.org/ElOceanografo/SDWBA.jl.svg?branch=master)](https://travis-ci.org/ElOceanografo/SDWBA.jl)
+
 This Julia package implements the (stochastic) distorted-wave Born approximation for simple, fluid-like scatterers.
 
 To install and load it, simply run

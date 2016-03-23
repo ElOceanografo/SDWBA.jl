@@ -53,6 +53,8 @@ function rescale(s::Scatterer; scale=1.0, radius=1.0, x=1.0, y=1.0, z=1.0)
 	return s
 end
 
+rescale(s::Scatterer, scale) = rescale(s, scale=scale)
+
 """
 Return the length of the scatterer (cartesian distance from one end to the other).
 """ 
@@ -108,8 +110,8 @@ scattering_function_param_docs = """
 f is the frequency and c is the sound speed) and it points in
 the direction of propagation.  For downward-propagating sound waves, 
 it is [0, 0, -2pi * f / c].
-- `phase_sd` : Standard deviation of the phase variability for each segment.
-Defaults to 0.0, that is an ordinary deterministic DWBA.  If > 0, the
+- `phase_sd` : Standard deviation of the phase variability for each segment (in radians).
+Defaults to 0.0, that is, an ordinary deterministic DWBA.  If > 0, the
 return value will be stochastic (i.e., the SDWBA).
 """
 
@@ -162,6 +164,7 @@ for func in [:form_function, :backscatter_xsection, :target_strength]
 	end)
 end
 
+
 """
 Calculate backscatter over a range of angles.
 
@@ -181,7 +184,8 @@ function tilt_spectrum(s::Scatterer, angle1, angle2, k, n=100)
 	angles = linspace(angle1, angle2, n)
 	sigma = zeros(angles)
 	for i in 1:n
-		sigma[i] = backscatter_xsection(s, k)
+		tilt = angles[i]
+		sigma[i] = backscatter_xsection(rotate(s, tilt=tilt), k)
 	end
 	TS = 10 * log10(sigma)
 	return Dict([("angles", angles), ("sigma_bs", sigma), ("TS", TS)])
@@ -193,10 +197,10 @@ Calculate backscatter over a range of frequencies.  The insonifying sound comes
 from above (i.e., traveling in the -z direction).
 
 #### Parameters
--`s` : Scatterer object
--`freq1`, `freq2` : Endpoints of the angle range to calculate.
--`sound_speed` : Sound speed in the surrounding medium
--`n` : Number of frequencies to calculate; defaults to 100
+- `s` : Scatterer object
+- `freq1`, `freq2` : Endpoints of the angle range to calculate.
+- `sound_speed` : Sound speed in the surrounding medium
+- `n` : Number of frequencies to calculate; defaults to 100
 
 Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 	each a length-n vector.

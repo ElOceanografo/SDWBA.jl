@@ -67,7 +67,6 @@ bent_cylinder = Scatterer(
 	a * ones(n_segments),
 	h * ones(n_segments),
 	g * ones(n_segments),
-	400e3
 )
 
 dwba = freq_spectrum(bent_cylinder, freq[1], freq[end], c1, length(k1))

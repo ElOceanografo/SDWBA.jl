@@ -5,10 +5,12 @@ module Models
 
 using SDWBA
 
+export  krill_mcgeehee,
+		krill_conti,
+		calanoid_copepod,
+		sandeel,
+		daphnia
 
-export krill_mcgeehee
-export krill_conti
-export sandeel
 
 DATA_DIR = joinpath(dirname(@__FILE__), "data/")
 
@@ -25,6 +27,19 @@ estimating krill target strength.' ICES Journal of Marine Science 63(5), 928-935
 """
 krill_conti = from_csv(joinpath(DATA_DIR, "generic_krill_Conti2006.csv"))
 
+<<<<<<< HEAD
 sandeel = from_csv(joinpath(DATA_DIR, "sand_eel.csv"))
+=======
+"""
+Generic calanoid copepod shape, 1 mm long, with g and h for "typical" marine zooplankton
+(both 1.04, as per Stanton and Chu 2000, 'Review and recommendations for the modelling 
+of acoustic scattering by fluid-like elongated zooplankton: euphausiids and copepods.'
+ICES Journal of Marine Science 57, 793-807).
+"""
+calanoid_copepod = from_csv(joinpath(DATA_DIR, "generic_acartia.csv"))
+
+# script defines daphnia shape
+include("data/daphnia.jl")
+>>>>>>> master
 
 end
