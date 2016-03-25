@@ -10,7 +10,7 @@ are needed to convert sonar echoes to estimates of biomass.
 To install and load it, simply run
 
 ```julia
-Pkg.clone("https://github.com/ElOceanografo/SDWBA.jl.git")
+Pkg.add("SDWBA")
 using SDWBA
 ```
 
