@@ -34,6 +34,8 @@ target_strength(krill2, freq, c)
 # -100.09
 ```
 
+Often, we are interested in how an animal scatters across a range of frequencies or tilt angles. Two convenience functions, `tilt_spectrum` and `freq_spectrum`, are included to do this easily.  For instance, we can take our krill and examine its frequency-response curves at a few different tilt angles:
+
 ```julia
 start, stop = 10e3, 1000e3 # endpoints of the spectrum, in Hz
 nfreqs = 200
@@ -41,7 +43,7 @@ fs0 = freq_spectrum(krill, start, stop, c, nfreqs)
 fs5 = freq_spectrum(rotate(krill, tilt=5), start, stop, c, nfreqs)
 fs10 = freq_spectrum(rotate(krill, tilt=10), start, stop, c, nfreqs)
 
-using PyPlot
+using PyPlot # for plotting functions
 semilogx(fs0["freqs"] / 1000, fs["TS"])
 semilogx(fs5["freqs"] / 1000, fs5["TS"])
 semilogx(fs10["freqs"] / 1000, fs10["TS"])
@@ -51,5 +53,7 @@ legend(("0°", "5°", "10°"), title="Tilt angle", loc="upper left", frameon=fal
 ```
 
 ![Krill frequency response](krill_freq_response.png)
+
+As expected, the target strength is lower at greater tilt angles, and the differences are more pronounced at higher freqencies in the geometric scattering region.
 
 The full documentation and function reference can be found at [http://sdwbajl.readthedocs.org/en/latest/](http://sdwbajl.readthedocs.org/en/latest/).
