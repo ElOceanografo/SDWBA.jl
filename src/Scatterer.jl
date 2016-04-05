@@ -15,9 +15,6 @@ in the proper order).
 - `h`, `g` : Vectors of sound speed and density contrasts (i.e., the ratio
 of sound speed or density inside the scatter to the same quantity in the
 surrounding medium).
-- `f0` : Default frequency for the scatterer.  Used when rescaling to ensure
-the digitized shape has enough segments relative to the acoustic wavelength.
-
 """
 :Scatterer
 type Scatterer{T}
