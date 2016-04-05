@@ -132,7 +132,7 @@ from above (i.e., traveling in the -z direction).</p>
 <p>Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
     each a length-n vector.</p>
 <p><em>source:</em>
-<a href="https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L208">SDWBA/src/Scatterer.jl:208</a></p>
+<a href="https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L229">SDWBA/src/Scatterer.jl:229</a></p>
 <hr />
 <p><a id="method__freq_spectrum.2" class="lexicon_definition"></a></p>
 <h4 id="freq_spectrumssdwbascatterert-freq1-freq2-sound_speed-n">freq_spectrum(s::SDWBA.Scatterer{T},  freq1,  freq2,  sound_speed,  n) <a href="#method__freq_spectrum.2">¶</a></h4>
@@ -148,7 +148,7 @@ from above (i.e., traveling in the -z direction).</p>
 <p>Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
     each a length-n vector.</p>
 <p><em>source:</em>
-<a href="https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L208">SDWBA/src/Scatterer.jl:208</a></p>
+<a href="https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L229">SDWBA/src/Scatterer.jl:229</a></p>
 <hr />
 <p><a id="method__from_csv.1" class="lexicon_definition"></a></p>
 <h4 id="from_csvfilename">from_csv(filename) <a href="#method__from_csv.1">¶</a></h4>
@@ -163,7 +163,7 @@ as the <code>a</code>, <code>h</code>, and <code>g</code> arguments to Scatterer
 names and the values are the actual ones in the file.</li>
 </ul>
 <p><em>source:</em>
-<a href="https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L230">SDWBA/src/Scatterer.jl:230</a></p>
+<a href="https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L251">SDWBA/src/Scatterer.jl:251</a></p>
 <hr />
 <p><a id="method__from_csv.2" class="lexicon_definition"></a></p>
 <h4 id="from_csvfilename-columns">from_csv(filename,  columns) <a href="#method__from_csv.2">¶</a></h4>
@@ -178,48 +178,55 @@ as the <code>a</code>, <code>h</code>, and <code>g</code> arguments to Scatterer
 names and the values are the actual ones in the file.</li>
 </ul>
 <p><em>source:</em>
-<a href="https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L230">SDWBA/src/Scatterer.jl:230</a></p>
+<a href="https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L251">SDWBA/src/Scatterer.jl:251</a></p>
 <hr />
 <p><a id="method__length.1" class="lexicon_definition"></a></p>
 <h4 id="lengthssdwbascatterert">length(s::SDWBA.Scatterer{T}) <a href="#method__length.1">¶</a></h4>
 <p>Return the length of the scatterer (cartesian distance from one end to the other).</p>
 <p><em>source:</em>
-<a href="https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L61">SDWBA/src/Scatterer.jl:61</a></p>
+<a href="https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L82">SDWBA/src/Scatterer.jl:82</a></p>
+<hr />
+<p><a id="method__rescale.1" class="lexicon_definition"></a></p>
+<h4 id="rescalessdwbascatterert">rescale(s::SDWBA.Scatterer{T}) <a href="#method__rescale.1">¶</a></h4>
+<p>Scale the scatterer's size (overall or along a particular dimension) by a 
+constant factor.</p>
+<h4 id="parameters_4">Parameters</h4>
+<ul>
+<li><code>s</code> : Scatterer object.</li>
+<li><code>scale</code> : Factor by which to grow/shrink the scatterer.</li>
+<li><code>radius</code>, <code>x</code>, <code>y</code>, <code>z</code> : Optional factors, scaling the scatterer's radius
+and along each dimension in space. All default to 1.0.</li>
+</ul>
+<h4 id="returns">Returns</h4>
+<p>A rescaled scatterer.</p>
+<h4 id="details">Details</h4>
+<p>When making a scatterer larger, it is important to make sure it's body has enough
+segments to accurately represent the shape at the frequencies of interest.
+Specifically, the ratio L / (N λ), where L is the length of the animal, N is the
+number of segments, and λ is the acoustic wavelength, should remain constant, which
+may require interpolating new points between the existing ones. See Conti and 
+Demer (2006) or Calise and Skaret (2011) for details.</p>
+<p><em>source:</em>
+<a href="https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L69">SDWBA/src/Scatterer.jl:69</a></p>
 <hr />
 <p><a id="method__rotate.1" class="lexicon_definition"></a></p>
 <h4 id="rotatessdwbascatterert">rotate(s::SDWBA.Scatterer{T}) <a href="#method__rotate.1">¶</a></h4>
 <p>Rotate the scatterer in space, returning a rotated copy.</p>
-<h4 id="parameters_4">Parameters</h4>
+<h4 id="parameters_5">Parameters</h4>
 <ul>
 <li><code>roll</code> : Angle to roll the scatterer, in degrees. Defaults to 0.</li>
 <li><code>tilt</code> : Angle to tilt the scatterer, in degrees. Defaults to 0.</li>
 <li><code>yaw</code> : Angle to yaw the scatterer, in degrees. Defaults to 0.</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns_1">Returns</h4>
 <p>A Scatterer with the same shape and properties, but a new orientation.</p>
 <p>The roll, tilt, and yaw refer to rotations around the x, y, and z axes,
 respectively. They are applied in that order.</p>
 <p><em>source:</em>
-<a href="https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L77">SDWBA/src/Scatterer.jl:77</a></p>
+<a href="https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L98">SDWBA/src/Scatterer.jl:98</a></p>
 <hr />
 <p><a id="method__tilt_spectrum.1" class="lexicon_definition"></a></p>
 <h4 id="tilt_spectrumssdwbascatterert-angle1-angle2-k">tilt_spectrum(s::SDWBA.Scatterer{T},  angle1,  angle2,  k) <a href="#method__tilt_spectrum.1">¶</a></h4>
-<p>Calculate backscatter over a range of angles.</p>
-<h4 id="parameters_5">Parameters</h4>
-<ul>
-<li><code>s</code> : Scatterer object</li>
-<li><code>angle1</code>, <code>angle2</code> : Endpoints of the angle range to calculate.</li>
-<li><code>k</code> : Acoustic wavenumber vector</li>
-<li><code>n</code> : Number of angles to calculate; defaults to 100</li>
-</ul>
-<h4 id="returns_1">Returns</h4>
-<p>A dictionary containing elements "angles", "sigma_bs", and "TS",
-each a length-n vector.</p>
-<p><em>source:</em>
-<a href="https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L183">SDWBA/src/Scatterer.jl:183</a></p>
-<hr />
-<p><a id="method__tilt_spectrum.2" class="lexicon_definition"></a></p>
-<h4 id="tilt_spectrumssdwbascatterert-angle1-angle2-k-n">tilt_spectrum(s::SDWBA.Scatterer{T},  angle1,  angle2,  k,  n) <a href="#method__tilt_spectrum.2">¶</a></h4>
 <p>Calculate backscatter over a range of angles.</p>
 <h4 id="parameters_6">Parameters</h4>
 <ul>
@@ -232,7 +239,34 @@ each a length-n vector.</p>
 <p>A dictionary containing elements "angles", "sigma_bs", and "TS",
 each a length-n vector.</p>
 <p><em>source:</em>
-<a href="https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L183">SDWBA/src/Scatterer.jl:183</a></p>
+<a href="https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L204">SDWBA/src/Scatterer.jl:204</a></p>
+<hr />
+<p><a id="method__tilt_spectrum.2" class="lexicon_definition"></a></p>
+<h4 id="tilt_spectrumssdwbascatterert-angle1-angle2-k-n">tilt_spectrum(s::SDWBA.Scatterer{T},  angle1,  angle2,  k,  n) <a href="#method__tilt_spectrum.2">¶</a></h4>
+<p>Calculate backscatter over a range of angles.</p>
+<h4 id="parameters_7">Parameters</h4>
+<ul>
+<li><code>s</code> : Scatterer object</li>
+<li><code>angle1</code>, <code>angle2</code> : Endpoints of the angle range to calculate.</li>
+<li><code>k</code> : Acoustic wavenumber vector</li>
+<li><code>n</code> : Number of angles to calculate; defaults to 100</li>
+</ul>
+<h4 id="returns_3">Returns</h4>
+<p>A dictionary containing elements "angles", "sigma_bs", and "TS",
+each a length-n vector.</p>
+<p><em>source:</em>
+<a href="https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L204">SDWBA/src/Scatterer.jl:204</a></p>
+<hr />
+<p><a id="method__to_csv.1" class="lexicon_definition"></a></p>
+<h4 id="to_csvssdwbascatterert-filename">to_csv(s::SDWBA.Scatterer{T},  filename) <a href="#method__to_csv.1">¶</a></h4>
+<p>Save a scatterer's shape to a file on disk with comma-separated values.</p>
+<h4 id="parameters_8">Parameters</h4>
+<ul>
+<li><code>s</code> : Scatterer object to save.</li>
+<li><code>filename</code> : Where to save it.</li>
+</ul>
+<p><em>source:</em>
+<a href="https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L272">SDWBA/src/Scatterer.jl:272</a></p>
               
             </div>
           </div>

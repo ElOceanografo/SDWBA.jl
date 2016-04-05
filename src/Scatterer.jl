@@ -45,6 +45,27 @@ end
 
 copy(s::Scatterer) = Scatterer(s.r, s.a, s.h, s.g)
 
+"""
+Scale the scatterer's size (overall or along a particular dimension) by a 
+constant factor.
+
+#### Parameters
+- `s` : Scatterer object.
+- `scale` : Factor by which to grow/shrink the scatterer.
+- `radius`, `x`, `y`, `z` : Optional factors, scaling the scatterer's radius
+and along each dimension in space. All default to 1.0.
+
+#### Returns
+A rescaled scatterer.
+
+#### Details
+When making a scatterer larger, it is important to make sure it's body has enough
+segments to accurately represent the shape at the frequencies of interest.
+Specifically, the ratio L / (N λ), where L is the length of the animal, N is the
+number of segments, and λ is the acoustic wavelength, should remain constant, which
+may require interpolating new points between the existing ones. See Conti and 
+Demer (2006) or Calise and Skaret (2011) for details.
+"""
 function rescale(s::Scatterer; scale=1.0, radius=1.0, x=1.0, y=1.0, z=1.0)
 	s = copy(s)
 	M = diagm([x, y, z]) * scale
@@ -240,6 +261,14 @@ function from_csv(filename, columns=Dict([("x","x"),("y","y"),("z","z"),
 	return Scatterer(r, a, h, g)
 end
 
+"""
+Save a scatterer's shape to a file on disk with comma-separated values.
+
+#### Parameters
+- `s` : Scatterer object to save.
+- `filename` : Where to save it.
+
+"""
 function to_csv(s::Scatterer, filename)
 	header = ["x" "y" "z" "a" "h" "g"]
 	data = [s.r' s.a s.h s.g]
