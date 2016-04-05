@@ -20,7 +20,7 @@ Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:229](https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L229)
+[SDWBA/src/Scatterer.jl:246](https://github.com/ElOceanografo/SDWBA.jl/tree/467c314a3aaa191258c02acf628b546a92eca941/src/Scatterer.jl#L246)
 
 ---
 
@@ -40,7 +40,7 @@ Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:229](https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L229)
+[SDWBA/src/Scatterer.jl:246](https://github.com/ElOceanografo/SDWBA.jl/tree/467c314a3aaa191258c02acf628b546a92eca941/src/Scatterer.jl#L246)
 
 ---
 
@@ -58,7 +58,7 @@ names and the values are the actual ones in the file.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:251](https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L251)
+[SDWBA/src/Scatterer.jl:268](https://github.com/ElOceanografo/SDWBA.jl/tree/467c314a3aaa191258c02acf628b546a92eca941/src/Scatterer.jl#L268)
 
 ---
 
@@ -76,7 +76,7 @@ names and the values are the actual ones in the file.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:251](https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L251)
+[SDWBA/src/Scatterer.jl:268](https://github.com/ElOceanografo/SDWBA.jl/tree/467c314a3aaa191258c02acf628b546a92eca941/src/Scatterer.jl#L268)
 
 ---
 
@@ -86,7 +86,7 @@ Return the length of the scatterer (cartesian distance from one end to the other
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:82](https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L82)
+[SDWBA/src/Scatterer.jl:99](https://github.com/ElOceanografo/SDWBA.jl/tree/467c314a3aaa191258c02acf628b546a92eca941/src/Scatterer.jl#L99)
 
 ---
 
@@ -114,7 +114,7 @@ Demer (2006) or Calise and Skaret (2011) for details.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:69](https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L69)
+[SDWBA/src/Scatterer.jl:69](https://github.com/ElOceanografo/SDWBA.jl/tree/467c314a3aaa191258c02acf628b546a92eca941/src/Scatterer.jl#L69)
 
 ---
 
@@ -135,7 +135,7 @@ respectively. They are applied in that order.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:98](https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L98)
+[SDWBA/src/Scatterer.jl:115](https://github.com/ElOceanografo/SDWBA.jl/tree/467c314a3aaa191258c02acf628b546a92eca941/src/Scatterer.jl#L115)
 
 ---
 
@@ -157,7 +157,7 @@ each a length-n vector.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:204](https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L204)
+[SDWBA/src/Scatterer.jl:221](https://github.com/ElOceanografo/SDWBA.jl/tree/467c314a3aaa191258c02acf628b546a92eca941/src/Scatterer.jl#L221)
 
 ---
 
@@ -179,7 +179,7 @@ each a length-n vector.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:204](https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L204)
+[SDWBA/src/Scatterer.jl:221](https://github.com/ElOceanografo/SDWBA.jl/tree/467c314a3aaa191258c02acf628b546a92eca941/src/Scatterer.jl#L221)
 
 ---
 
@@ -194,5 +194,26 @@ Save a scatterer's shape to a file on disk with comma-separated values.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:272](https://github.com/ElOceanografo/SDWBA.jl/tree/632e54ce4acc8278adac559476b2aa569a94b941/src/Scatterer.jl#L272)
+[SDWBA/src/Scatterer.jl:289](https://github.com/ElOceanografo/SDWBA.jl/tree/467c314a3aaa191258c02acf628b546a92eca941/src/Scatterer.jl#L289)
+
+## Internal
+
+---
+
+<a id="method__resize.1" class="lexicon_definition"></a>
+#### resize(s::SDWBA.Scatterer{T},  len) [¶](#method__resize.1)
+Resize a scatterer.  This is a convenience wrapper around `rescale`, for the
+common situation where you want to change a scatterer to a specific length.
+The scatterer's relative proportions are preserved.
+
+#### Parameters
+- `s` : Scatterer 
+- `len` : Desired length to which the scatterer should be scaled.
+
+#### Returns
+A resized scatterer.
+
+
+*source:*
+[SDWBA/src/Scatterer.jl:91](https://github.com/ElOceanografo/SDWBA.jl/tree/467c314a3aaa191258c02acf628b546a92eca941/src/Scatterer.jl#L91)
 

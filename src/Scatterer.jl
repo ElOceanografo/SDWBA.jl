@@ -77,6 +77,23 @@ end
 rescale(s::Scatterer, scale) = rescale(s, scale=scale)
 
 """
+Resize a scatterer.  This is a convenience wrapper around `rescale`, for the
+common situation where you want to change a scatterer to a specific length.
+The scatterer's relative proportions are preserved.
+
+#### Parameters
+- `s` : Scatterer 
+- `len` : Desired length to which the scatterer should be scaled.
+
+#### Returns
+A resized scatterer.
+"""
+function resize(s::Scatterer, len)
+	L0 = length(s)
+	return rescale(s, len / L0)
+end
+
+"""
 Return the length of the scatterer (cartesian distance from one end to the other).
 """ 
 length(s::Scatterer) = norm(s.r[:, 1] - s.r[:, end])
