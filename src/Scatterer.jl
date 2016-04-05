@@ -27,16 +27,20 @@ type Scatterer{T}
 	g::Array{T, 1}
 end
 
-function Scatterer(r::Array{Real, 2}, a::Vector{Real}, h::Vector{Real},
-	g::Vector{Real})
-	return Scatterer(promote(r, a, h, g)...)	
+function Scatterer(r::Array, a::Array, h::Array, g::Array)
+	T = Base.promote_eltype(r, a, h, g)
+	r = convert(Matrix{T}, r)
+	a = convert(Vector{T}, a)
+	h = convert(Vector{T}, h)
+	g = convert(Vector{T}, g)
+	return Scatterer(r, a, h, g)
 end
 
-# function Scatterer(r::Array{Real, 2}, a::Vector{Real}, h::Real, g::Real, f0::Real)
-# 	g1 = g * ones(a)
-# 	h1 = h * ones(a)
-# 	return Scatterer(promote(r, a, h1, g1, f0)...)	
-# end
+function Scatterer(r::Matrix, a::Vector, h::Real, g::Real)
+	g1 = g * ones(length(a))
+	h1 = h * ones(length(a))
+	return Scatterer(r, a, h1, g1)	
+end
 
 function show(io::IO, s::Scatterer)
 	println("$(typeof(s)) with $(length(s.a)) segments")

@@ -3,6 +3,7 @@ module SDWBA
 
 export Scatterer,
 	rescale,
+	resize,
 	rotate,
 	length,
 	form_function,
