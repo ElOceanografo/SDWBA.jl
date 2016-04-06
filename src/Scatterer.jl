@@ -44,6 +44,11 @@ function show(io::IO, s::Scatterer)
 	print("Length $(signif(length(s), 3))")
 end
 
+"""
+Return the length of the scatterer (cartesian distance from one end to the other).
+""" 
+length(s::Scatterer) = norm(s.r[:, 1] - s.r[:, end])
+
 copy(s::Scatterer) = Scatterer(s.r, s.a, s.h, s.g)
 
 """
@@ -77,6 +82,7 @@ end
 
 rescale(s::Scatterer, scale) = rescale(s, scale=scale)
 
+
 """
 Resize a scatterer.  This is a convenience wrapper around `rescale`, for the
 common situation where you want to change a scatterer to a specific length.
@@ -94,10 +100,32 @@ function resize(s::Scatterer, len)
 	return rescale(s, len / L0)
 end
 
+
 """
-Return the length of the scatterer (cartesian distance from one end to the other).
-""" 
-length(s::Scatterer) = norm(s.r[:, 1] - s.r[:, end])
+Resample a scatterer's measurement points by interpolating between them. Used
+to change the resolution, for instance when increasing the scatterer's body 
+size or decreasing the acoustic wavelength.
+
+#### Parameters
+- `s` : Scatterer
+- `n` : Number of body segments desired in the interpolated scatterer.
+
+#### Returns
+A Scatterer with a different number of body segments.
+"""
+function interpolate(s::Scatterer, n)
+	# Length along scatterer's centerline
+	along = [0, cumsum(vec(sqrt(sum(diff(s.r, 2).^2, 1))));]
+	new_along = linspace(0, maximum(along), n)
+	x = interpolate((along,), vec(s.r[1, :]), Gridded(Linear()))[new_along]
+	y = interpolate((along,), vec(s.r[2, :]), Gridded(Linear()))[new_along]
+	z = interpolate((along,), vec(s.r[3, :]), Gridded(Linear()))[new_along]
+	a = interpolate((along,), s.a, Gridded(Linear()))[new_along]
+	h = interpolate((along,), s.h, Gridded(Linear()))[new_along]
+	g = interpolate((along,), s.g, Gridded(Linear()))[new_along]
+	r = [x'; y'; z']
+	return Scatterer(r, a, h, g)
+end
 
 """
 Rotate the scatterer in space, returning a rotated copy.

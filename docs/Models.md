@@ -13,7 +13,7 @@ ICES Journal of Marine Science 57, 793-807).
 
 
 *source:*
-[SDWBA/src/Models.jl:46](https://github.com/ElOceanografo/SDWBA.jl/tree/7730312531c2f9b08848b4a63fbfcf6f31763e00/src/Models.jl#L46)
+[SDWBA/src/Models.jl:46](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Models.jl#L46)
 
 ---
 
@@ -25,7 +25,7 @@ with a 710 kHz scientific echosounder.' Limnology and Oceanography: Methods
 
 
 *source:*
-[SDWBA/src/Models.jl:52](https://github.com/ElOceanografo/SDWBA.jl/tree/7730312531c2f9b08848b4a63fbfcf6f31763e00/src/Models.jl#L52)
+[SDWBA/src/Models.jl:52](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Models.jl#L52)
 
 ---
 
@@ -36,7 +36,7 @@ estimating krill target strength.' ICES Journal of Marine Science 63(5), 928-935
 
 
 *source:*
-[SDWBA/src/Models.jl:28](https://github.com/ElOceanografo/SDWBA.jl/tree/7730312531c2f9b08848b4a63fbfcf6f31763e00/src/Models.jl#L28)
+[SDWBA/src/Models.jl:28](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Models.jl#L28)
 
 ---
 
@@ -47,7 +47,7 @@ from Antarctic krill at 120 kHz.' Deep-Sea Research II 45(7), 1273-1294.
 
 
 *source:*
-[SDWBA/src/Models.jl:22](https://github.com/ElOceanografo/SDWBA.jl/tree/7730312531c2f9b08848b4a63fbfcf6f31763e00/src/Models.jl#L22)
+[SDWBA/src/Models.jl:22](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Models.jl#L22)
 
 ---
 
@@ -60,5 +60,5 @@ Japanese sandeel Ammodytes personatus.' Fisheries Science 75 (3) 545-552.
 
 
 *source:*
-[SDWBA/src/Models.jl:38](https://github.com/ElOceanografo/SDWBA.jl/tree/7730312531c2f9b08848b4a63fbfcf6f31763e00/src/Models.jl#L38)
+[SDWBA/src/Models.jl:38](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Models.jl#L38)
 
