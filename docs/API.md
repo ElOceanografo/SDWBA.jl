@@ -20,7 +20,7 @@ Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:247](https://github.com/ElOceanografo/SDWBA.jl/tree/9556dd403a683d84e40197841cedaef143a84d61/src/Scatterer.jl#L247)
+[SDWBA/src/Scatterer.jl:247](https://github.com/ElOceanografo/SDWBA.jl/tree/7730312531c2f9b08848b4a63fbfcf6f31763e00/src/Scatterer.jl#L247)
 
 ---
 
@@ -40,7 +40,7 @@ Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:247](https://github.com/ElOceanografo/SDWBA.jl/tree/9556dd403a683d84e40197841cedaef143a84d61/src/Scatterer.jl#L247)
+[SDWBA/src/Scatterer.jl:247](https://github.com/ElOceanografo/SDWBA.jl/tree/7730312531c2f9b08848b4a63fbfcf6f31763e00/src/Scatterer.jl#L247)
 
 ---
 
@@ -58,7 +58,7 @@ names and the values are the actual ones in the file.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:269](https://github.com/ElOceanografo/SDWBA.jl/tree/9556dd403a683d84e40197841cedaef143a84d61/src/Scatterer.jl#L269)
+[SDWBA/src/Scatterer.jl:269](https://github.com/ElOceanografo/SDWBA.jl/tree/7730312531c2f9b08848b4a63fbfcf6f31763e00/src/Scatterer.jl#L269)
 
 ---
 
@@ -76,7 +76,7 @@ names and the values are the actual ones in the file.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:269](https://github.com/ElOceanografo/SDWBA.jl/tree/9556dd403a683d84e40197841cedaef143a84d61/src/Scatterer.jl#L269)
+[SDWBA/src/Scatterer.jl:269](https://github.com/ElOceanografo/SDWBA.jl/tree/7730312531c2f9b08848b4a63fbfcf6f31763e00/src/Scatterer.jl#L269)
 
 ---
 
@@ -86,7 +86,7 @@ Return the length of the scatterer (cartesian distance from one end to the other
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:100](https://github.com/ElOceanografo/SDWBA.jl/tree/9556dd403a683d84e40197841cedaef143a84d61/src/Scatterer.jl#L100)
+[SDWBA/src/Scatterer.jl:100](https://github.com/ElOceanografo/SDWBA.jl/tree/7730312531c2f9b08848b4a63fbfcf6f31763e00/src/Scatterer.jl#L100)
 
 ---
 
@@ -114,7 +114,7 @@ Demer (2006) or Calise and Skaret (2011) for details.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:70](https://github.com/ElOceanografo/SDWBA.jl/tree/9556dd403a683d84e40197841cedaef143a84d61/src/Scatterer.jl#L70)
+[SDWBA/src/Scatterer.jl:70](https://github.com/ElOceanografo/SDWBA.jl/tree/7730312531c2f9b08848b4a63fbfcf6f31763e00/src/Scatterer.jl#L70)
 
 ---
 
@@ -133,7 +133,7 @@ A resized scatterer.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:92](https://github.com/ElOceanografo/SDWBA.jl/tree/9556dd403a683d84e40197841cedaef143a84d61/src/Scatterer.jl#L92)
+[SDWBA/src/Scatterer.jl:92](https://github.com/ElOceanografo/SDWBA.jl/tree/7730312531c2f9b08848b4a63fbfcf6f31763e00/src/Scatterer.jl#L92)
 
 ---
 
@@ -154,7 +154,7 @@ respectively. They are applied in that order.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:116](https://github.com/ElOceanografo/SDWBA.jl/tree/9556dd403a683d84e40197841cedaef143a84d61/src/Scatterer.jl#L116)
+[SDWBA/src/Scatterer.jl:116](https://github.com/ElOceanografo/SDWBA.jl/tree/7730312531c2f9b08848b4a63fbfcf6f31763e00/src/Scatterer.jl#L116)
 
 ---
 
@@ -176,7 +176,7 @@ each a length-n vector.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:222](https://github.com/ElOceanografo/SDWBA.jl/tree/9556dd403a683d84e40197841cedaef143a84d61/src/Scatterer.jl#L222)
+[SDWBA/src/Scatterer.jl:222](https://github.com/ElOceanografo/SDWBA.jl/tree/7730312531c2f9b08848b4a63fbfcf6f31763e00/src/Scatterer.jl#L222)
 
 ---
 
@@ -198,7 +198,7 @@ each a length-n vector.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:222](https://github.com/ElOceanografo/SDWBA.jl/tree/9556dd403a683d84e40197841cedaef143a84d61/src/Scatterer.jl#L222)
+[SDWBA/src/Scatterer.jl:222](https://github.com/ElOceanografo/SDWBA.jl/tree/7730312531c2f9b08848b4a63fbfcf6f31763e00/src/Scatterer.jl#L222)
 
 ---
 
@@ -213,5 +213,5 @@ Save a scatterer's shape to a file on disk with comma-separated values.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:290](https://github.com/ElOceanografo/SDWBA.jl/tree/9556dd403a683d84e40197841cedaef143a84d61/src/Scatterer.jl#L290)
+[SDWBA/src/Scatterer.jl:290](https://github.com/ElOceanografo/SDWBA.jl/tree/7730312531c2f9b08848b4a63fbfcf6f31763e00/src/Scatterer.jl#L290)
 

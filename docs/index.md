@@ -6,7 +6,7 @@ This Julia package implements the (stochastic) distorted-wave Born approximation
 To install, run
 
 ```julia
-Pkg.clone("https://github.com/ElOceanografo/SDWBA.jl.git")
+Pkg.add("SDWBA")
 ```
 
 It can then be loaded the normal way:
