@@ -2,10 +2,15 @@
 
 [![Build Status](https://travis-ci.org/ElOceanografo/SDWBA.jl.svg?branch=master)](https://travis-ci.org/ElOceanografo/SDWBA.jl)
 
+[![DOI](https://zenodo.org/badge/21069/ElOceanografo/SDWBA.jl.svg)](https://zenodo.org/badge/latestdoi/21069/ElOceanografo/SDWBA.jl)
+
 This Julia package implements the (stochastic) distorted-wave Born approximation for 
 acoustic scattering from fluid-like objects shaped like distorted cylinders.  These
 models are useful for modeling the acoustic target strengths (TS) of zooplankton, which
 are needed to convert sonar echoes to estimates of biomass.
+
+
+The full documentation and function reference can be found at [http://sdwbajl.readthedocs.org/en/latest/](http://sdwbajl.readthedocs.org/en/latest/).  A short demo is given below:
 
 To install and load it, simply run
 
@@ -55,5 +60,3 @@ legend(("0°", "5°", "10°"), title="Tilt angle", loc="upper left", frameon=fal
 ![Krill frequency response](krill_freq_response.png)
 
 As expected, the target strength is lower at greater tilt angles, and the differences are more pronounced at higher freqencies in the geometric scattering region.
-
-The full documentation and function reference can be found at [http://sdwbajl.readthedocs.org/en/latest/](http://sdwbajl.readthedocs.org/en/latest/).
