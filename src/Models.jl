@@ -9,7 +9,8 @@ export  krill_mcgeehee,
 		krill_conti,
 		calanoid_copepod,
 		sandeel,
-		daphnia
+		daphnia,
+		nauplius
 
 
 DATA_DIR = joinpath(dirname(@__FILE__), "data/")
@@ -45,5 +46,13 @@ calanoid_copepod = from_csv(joinpath(DATA_DIR, "generic_acartia.csv"))
 
 # script defines daphnia shape
 include("data/daphnia.jl")
+
+"""
+Generic nauplius larva shape, 0.5 mm long, with g and h for "typical" marine zooplankton
+(both 1.04, as per Stanton and Chu 2000, 'Review and recommendations for the modelling 
+of acoustic scattering by fluid-like elongated zooplankton: euphausiids and copepods.'
+ICES Journal of Marine Science 57, 793-807).
+"""
+nauplius = from_csv(joinpath(DATA_DIR, "nauplius.csv"))
 
 end
