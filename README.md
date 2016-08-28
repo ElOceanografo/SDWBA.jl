@@ -2,15 +2,20 @@
 
 [![Build Status](https://travis-ci.org/ElOceanografo/SDWBA.jl.svg?branch=master)](https://travis-ci.org/ElOceanografo/SDWBA.jl)
 
+[![DOI](https://zenodo.org/badge/21069/ElOceanografo/SDWBA.jl.svg)](https://zenodo.org/badge/latestdoi/21069/ElOceanografo/SDWBA.jl)
+
 This Julia package implements the (stochastic) distorted-wave Born approximation for 
 acoustic scattering from fluid-like objects shaped like distorted cylinders.  These
 models are useful for modeling the acoustic target strengths (TS) of zooplankton, which
 are needed to convert sonar echoes to estimates of biomass.
 
+
+The full documentation and function reference can be found at [http://sdwbajl.readthedocs.org/en/latest/](http://sdwbajl.readthedocs.org/en/latest/).  A short demo is given below:
+
 To install and load it, simply run
 
 ```julia
-Pkg.clone("https://github.com/ElOceanografo/SDWBA.jl.git")
+Pkg.add("SDWBA")
 using SDWBA
 ```
 
@@ -34,4 +39,24 @@ target_strength(krill2, freq, c)
 # -100.09
 ```
 
-The full documentation and function reference can be found at [http://sdwbajl.readthedocs.org/en/latest/](http://sdwbajl.readthedocs.org/en/latest/).
+Often, we are interested in how an animal scatters across a range of frequencies or tilt angles. Two convenience functions, `tilt_spectrum` and `freq_spectrum`, are included to do this easily.  For instance, we can take our krill and examine its frequency-response curves at a few different tilt angles:
+
+```julia
+start, stop = 10e3, 1000e3 # endpoints of the spectrum, in Hz
+nfreqs = 200
+fs0 = freq_spectrum(krill, start, stop, c, nfreqs)
+fs5 = freq_spectrum(rotate(krill, tilt=5), start, stop, c, nfreqs)
+fs10 = freq_spectrum(rotate(krill, tilt=10), start, stop, c, nfreqs)
+
+using PyPlot # for plotting functions
+semilogx(fs0["freqs"] / 1000, fs["TS"])
+semilogx(fs5["freqs"] / 1000, fs5["TS"])
+semilogx(fs10["freqs"] / 1000, fs10["TS"])
+xlabel("Frequency (kHz)")
+ylabel("Target Strength (dB re m^2)")
+legend(("0°", "5°", "10°"), title="Tilt angle", loc="upper left", frameon=false)
+```
+
+![Krill frequency response](krill_freq_response.png)
+
+As expected, the target strength is lower at greater tilt angles, and the differences are more pronounced at higher freqencies in the geometric scattering region.

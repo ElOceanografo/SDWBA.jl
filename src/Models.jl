@@ -44,8 +44,12 @@ ICES Journal of Marine Science 57, 793-807).
 """
 calanoid_copepod = from_csv(joinpath(DATA_DIR, "generic_acartia.csv"))
 
-# script defines daphnia shape
-include("data/daphnia.jl")
+"""
+Generic Daphnia shape used in Warren et al. 2016, 'Measuring the distribution, 
+abundance, and biovolume of zooplankton in an oligotrophic freshwater lake 
+with a 710 kHz scientific echosounder.' Limnology and Oceanography: Methods
+"""
+daphnia = from_csv(joinpath(DATA_DIR, "daphnia.csv"))
 
 """
 Generic nauplius larva shape, 0.5 mm long, with g and h for "typical" marine zooplankton

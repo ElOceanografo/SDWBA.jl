@@ -20,7 +20,7 @@ Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:208](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L208)
+[SDWBA/src/Scatterer.jl:275](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Scatterer.jl#L275)
 
 ---
 
@@ -40,7 +40,7 @@ Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:208](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L208)
+[SDWBA/src/Scatterer.jl:275](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Scatterer.jl#L275)
 
 ---
 
@@ -58,7 +58,7 @@ names and the values are the actual ones in the file.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:230](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L230)
+[SDWBA/src/Scatterer.jl:297](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Scatterer.jl#L297)
 
 ---
 
@@ -76,7 +76,7 @@ names and the values are the actual ones in the file.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:230](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L230)
+[SDWBA/src/Scatterer.jl:297](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Scatterer.jl#L297)
 
 ---
 
@@ -86,7 +86,54 @@ Return the length of the scatterer (cartesian distance from one end to the other
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:61](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L61)
+[SDWBA/src/Scatterer.jl:50](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Scatterer.jl#L50)
+
+---
+
+<a id="method__rescale.1" class="lexicon_definition"></a>
+#### rescale(s::SDWBA.Scatterer{T}) [¶](#method__rescale.1)
+Scale the scatterer's size (overall or along a particular dimension) by a 
+constant factor.
+
+#### Parameters
+- `s` : Scatterer object.
+- `scale` : Factor by which to grow/shrink the scatterer.
+- `radius`, `x`, `y`, `z` : Optional factors, scaling the scatterer's radius
+and along each dimension in space. All default to 1.0.
+
+#### Returns
+A rescaled scatterer.
+
+#### Details
+When making a scatterer larger, it is important to make sure it's body has enough
+segments to accurately represent the shape at the frequencies of interest.
+Specifically, the ratio L / (N λ), where L is the length of the animal, N is the
+number of segments, and λ is the acoustic wavelength, should remain constant, which
+may require interpolating new points between the existing ones. See Conti and 
+Demer (2006) or Calise and Skaret (2011) for details.
+
+
+*source:*
+[SDWBA/src/Scatterer.jl:75](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Scatterer.jl#L75)
+
+---
+
+<a id="method__resize.1" class="lexicon_definition"></a>
+#### resize(s::SDWBA.Scatterer{T},  len) [¶](#method__resize.1)
+Resize a scatterer.  This is a convenience wrapper around `rescale`, for the
+common situation where you want to change a scatterer to a specific length.
+The scatterer's relative proportions are preserved.
+
+#### Parameters
+- `s` : Scatterer 
+- `len` : Desired length to which the scatterer should be scaled.
+
+#### Returns
+A resized scatterer.
+
+
+*source:*
+[SDWBA/src/Scatterer.jl:98](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Scatterer.jl#L98)
 
 ---
 
@@ -107,7 +154,7 @@ respectively. They are applied in that order.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:77](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L77)
+[SDWBA/src/Scatterer.jl:144](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Scatterer.jl#L144)
 
 ---
 
@@ -129,7 +176,7 @@ each a length-n vector.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:183](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L183)
+[SDWBA/src/Scatterer.jl:250](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Scatterer.jl#L250)
 
 ---
 
@@ -151,5 +198,41 @@ each a length-n vector.
 
 
 *source:*
-[SDWBA/src/Scatterer.jl:183](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Scatterer.jl#L183)
+[SDWBA/src/Scatterer.jl:250](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Scatterer.jl#L250)
+
+---
+
+<a id="method__to_csv.1" class="lexicon_definition"></a>
+#### to_csv(s::SDWBA.Scatterer{T},  filename) [¶](#method__to_csv.1)
+Save a scatterer's shape to a file on disk with comma-separated values.
+
+#### Parameters
+- `s` : Scatterer object to save.
+- `filename` : Where to save it.
+
+
+
+*source:*
+[SDWBA/src/Scatterer.jl:318](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Scatterer.jl#L318)
+
+## Internal
+
+---
+
+<a id="method__interpolate.1" class="lexicon_definition"></a>
+#### interpolate(s::SDWBA.Scatterer{T},  n) [¶](#method__interpolate.1)
+Resample a scatterer's measurement points by interpolating between them. Used
+to change the resolution, for instance when increasing the scatterer's body 
+size or decreasing the acoustic wavelength.
+
+#### Parameters
+- `s` : Scatterer
+- `n` : Number of body segments desired in the interpolated scatterer.
+
+#### Returns
+A Scatterer with a different number of body segments.
+
+
+*source:*
+[SDWBA/src/Scatterer.jl:116](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Scatterer.jl#L116)
 

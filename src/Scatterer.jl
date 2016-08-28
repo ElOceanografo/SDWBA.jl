@@ -15,9 +15,6 @@ in the proper order).
 - `h`, `g` : Vectors of sound speed and density contrasts (i.e., the ratio
 of sound speed or density inside the scatter to the same quantity in the
 surrounding medium).
-- `f0` : Default frequency for the scatterer.  Used when rescaling to ensure
-the digitized shape has enough segments relative to the acoustic wavelength.
-
 """
 :Scatterer
 type Scatterer{T}
@@ -27,24 +24,54 @@ type Scatterer{T}
 	g::Array{T, 1}
 end
 
-function Scatterer(r::Array{Real, 2}, a::Vector{Real}, h::Vector{Real},
-	g::Vector{Real})
-	return Scatterer(promote(r, a, h, g)...)	
+function Scatterer(r::Array, a::Array, h::Array, g::Array)
+	T = Base.promote_eltype(r, a, h, g)
+	r = convert(Matrix{T}, r)
+	a = convert(Vector{T}, a)
+	h = convert(Vector{T}, h)
+	g = convert(Vector{T}, g)
+	return Scatterer(r, a, h, g)
 end
 
-# function Scatterer(r::Array{Real, 2}, a::Vector{Real}, h::Real, g::Real, f0::Real)
-# 	g1 = g * ones(a)
-# 	h1 = h * ones(a)
-# 	return Scatterer(promote(r, a, h1, g1, f0)...)	
-# end
+function Scatterer(r::Matrix, a::Vector, h::Real, g::Real)
+	g1 = g * ones(length(a))
+	h1 = h * ones(length(a))
+	return Scatterer(r, a, h1, g1)	
+end
 
 function show(io::IO, s::Scatterer)
 	println("$(typeof(s)) with $(length(s.a)) segments")
 	print("Length $(signif(length(s), 3))")
 end
 
+"""
+Return the length of the scatterer (cartesian distance from one end to the other).
+""" 
+length(s::Scatterer) = norm(s.r[:, 1] - s.r[:, end])
+
 copy(s::Scatterer) = Scatterer(s.r, s.a, s.h, s.g)
 
+"""
+Scale the scatterer's size (overall or along a particular dimension) by a 
+constant factor.
+
+#### Parameters
+- `s` : Scatterer object.
+- `scale` : Factor by which to grow/shrink the scatterer.
+- `radius`, `x`, `y`, `z` : Optional factors, scaling the scatterer's radius
+and along each dimension in space. All default to 1.0.
+
+#### Returns
+A rescaled scatterer.
+
+#### Details
+When making a scatterer larger, it is important to make sure it's body has enough
+segments to accurately represent the shape at the frequencies of interest.
+Specifically, the ratio L / (N λ), where L is the length of the animal, N is the
+number of segments, and λ is the acoustic wavelength, should remain constant, which
+may require interpolating new points between the existing ones. See Conti and 
+Demer (2006) or Calise and Skaret (2011) for details.
+"""
 function rescale(s::Scatterer; scale=1.0, radius=1.0, x=1.0, y=1.0, z=1.0)
 	s = copy(s)
 	M = diagm([x, y, z]) * scale
@@ -55,10 +82,50 @@ end
 
 rescale(s::Scatterer, scale) = rescale(s, scale=scale)
 
+
 """
-Return the length of the scatterer (cartesian distance from one end to the other).
-""" 
-length(s::Scatterer) = norm(s.r[:, 1] - s.r[:, end])
+Resize a scatterer.  This is a convenience wrapper around `rescale`, for the
+common situation where you want to change a scatterer to a specific length.
+The scatterer's relative proportions are preserved.
+
+#### Parameters
+- `s` : Scatterer 
+- `len` : Desired length to which the scatterer should be scaled.
+
+#### Returns
+A resized scatterer.
+"""
+function resize(s::Scatterer, len)
+	L0 = length(s)
+	return rescale(s, len / L0)
+end
+
+
+"""
+Resample a scatterer's measurement points by interpolating between them. Used
+to change the resolution, for instance when increasing the scatterer's body 
+size or decreasing the acoustic wavelength.
+
+#### Parameters
+- `s` : Scatterer
+- `n` : Number of body segments desired in the interpolated scatterer.
+
+#### Returns
+A Scatterer with a different number of body segments.
+"""
+function interpolate(s::Scatterer, n)
+	# Length along scatterer's centerline
+	along = [0, cumsum(vec(sqrt(sum(diff(s.r, 2).^2, 1))));]
+	new_along = linspace(0, maximum(along), n)
+	x = interpolate((along,), vec(s.r[1, :]), Gridded(Linear()))[new_along]
+	y = interpolate((along,), vec(s.r[2, :]), Gridded(Linear()))[new_along]
+	z = interpolate((along,), vec(s.r[3, :]), Gridded(Linear()))[new_along]
+	a = interpolate((along,), s.a, Gridded(Linear()))[new_along]
+	h = interpolate((along,), s.h, Gridded(Linear()))[new_along]
+	g = interpolate((along,), s.g, Gridded(Linear()))[new_along]
+	r = [x'; y'; z']
+	return Scatterer(r, a, h, g)
+end
 
 """
 Rotate the scatterer in space, returning a rotated copy.
@@ -240,6 +307,14 @@ function from_csv(filename, columns=Dict([("x","x"),("y","y"),("z","z"),
 	return Scatterer(r, a, h, g)
 end
 
+"""
+Save a scatterer's shape to a file on disk with comma-separated values.
+
+#### Parameters
+- `s` : Scatterer object to save.
+- `filename` : Where to save it.
+
+"""
 function to_csv(s::Scatterer, filename)
 	header = ["x" "y" "z" "a" "h" "g"]
 	data = [s.r' s.a s.h s.g]

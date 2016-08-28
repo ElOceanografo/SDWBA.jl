@@ -13,7 +13,19 @@ ICES Journal of Marine Science 57, 793-807).
 
 
 *source:*
-[SDWBA/src/Models.jl:46](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Models.jl#L46)
+[SDWBA/src/Models.jl:46](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Models.jl#L46)
+
+---
+
+<a id="global__daphnia.1" class="lexicon_definition"></a>
+#### daphnia [¶](#global__daphnia.1)
+Generic Daphnia shape used in Warren et al. 2016, 'Measuring the distribution, 
+abundance, and biovolume of zooplankton in an oligotrophic freshwater lake 
+with a 710 kHz scientific echosounder.' Limnology and Oceanography: Methods
+
+
+*source:*
+[SDWBA/src/Models.jl:52](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Models.jl#L52)
 
 ---
 
@@ -24,7 +36,7 @@ estimating krill target strength.' ICES Journal of Marine Science 63(5), 928-935
 
 
 *source:*
-[SDWBA/src/Models.jl:28](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Models.jl#L28)
+[SDWBA/src/Models.jl:28](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Models.jl#L28)
 
 ---
 
@@ -35,7 +47,7 @@ from Antarctic krill at 120 kHz.' Deep-Sea Research II 45(7), 1273-1294.
 
 
 *source:*
-[SDWBA/src/Models.jl:22](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Models.jl#L22)
+[SDWBA/src/Models.jl:22](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Models.jl#L22)
 
 ---
 
@@ -48,5 +60,5 @@ Japanese sandeel Ammodytes personatus.' Fisheries Science 75 (3) 545-552.
 
 
 *source:*
-[SDWBA/src/Models.jl:38](https://github.com/ElOceanografo/SDWBA.jl/tree/98bb9c940455455a182b5b0c572df04008018d4e/src/Models.jl#L38)
+[SDWBA/src/Models.jl:38](https://github.com/ElOceanografo/SDWBA.jl/tree/58159dc1cd2fa7416e74887232848ebaba820633/src/Models.jl#L38)
 
