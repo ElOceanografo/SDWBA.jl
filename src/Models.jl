@@ -52,6 +52,11 @@ with a 710 kHz scientific echosounder.' Limnology and Oceanography: Methods
 daphnia = from_csv(joinpath(DATA_DIR, "daphnia.csv"))
 
 """
+Alternative (more realistic?) daphnia shape
+"""
+daphnia2 = from_csv(joinpath(DATA_DIR, "daphnia2.csv"))
+
+"""
 Generic nauplius larva shape, 0.5 mm long, with g and h for "typical" marine zooplankton
 (both 1.04, as per Stanton and Chu 2000, 'Review and recommendations for the modelling 
 of acoustic scattering by fluid-like elongated zooplankton: euphausiids and copepods.'
