@@ -1,7 +1,7 @@
 
-x = linspace(0, 0.2, 10)
-y = zeros(x)
-z = zeros(x)
+x = range(0, stop=0.2, length=10)
+y = zeros(size(x))
+z = zeros(size(x))
 r = [x'; y'; z']
 a = randn(10).^2  # squared to make sure the're all positive
 
@@ -21,6 +21,6 @@ cope = Models.calanoid_copepod
 sandeel = Models.sandeel
 daphnia = Models.daphnia
 
-@test_approx_eq(length(rotate(krill1, roll=90, tilt=30, yaw=12)), length(krill1))
-@assert length(resize(krill1, 0.03)) == 0.03
 
+@assert length(rotate(krill1, roll=90, tilt=30, yaw=12)) ≈ length(krill1)
+@assert length(resize(krill1, 0.03)) == 0.03

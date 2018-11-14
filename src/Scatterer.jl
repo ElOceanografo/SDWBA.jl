@@ -8,8 +8,8 @@ described by the [x, y, z] coordinates, radii, and material properties at their
 endpoints.
 
 #### Parameters
-- `r` : 3x`N` matrix describing the scatterer's centerline.  Each column is the 
-location in 3-D space of one of the centerline points (these should be arranged 
+- `r` : 3x`N` matrix describing the scatterer's centerline.  Each column is the
+location in 3-D space of one of the centerline points (these should be arranged
 in the proper order).
 - `a` : Vector of radii, length `N`.
 - `h`, `g` : Vectors of sound speed and density contrasts (i.e., the ratio
@@ -17,26 +17,26 @@ of sound speed or density inside the scatter to the same quantity in the
 surrounding medium).
 """
 :Scatterer
-type Scatterer{T}
-	r::Array{T, 2}
-	a::Array{T, 1}
-	h::Array{T, 1}
-	g::Array{T, 1}
+mutable struct Scatterer{T}
+	r::AbstractArray{T, 2}
+	a::AbstractArray{T, 1}
+	h::AbstractArray{T, 1}
+	g::AbstractArray{T, 1}
 end
 
-function Scatterer(r::Array, a::Array, h::Array, g::Array)
+function Scatterer(r::AbstractArray, a::AbstractArray, h::AbstractArray, g::AbstractArray)
 	T = Base.promote_eltype(r, a, h, g)
-	r = convert(Matrix{T}, r)
-	a = convert(Vector{T}, a)
-	h = convert(Vector{T}, h)
-	g = convert(Vector{T}, g)
+	r = convert(AbstractMatrix{T}, r)
+	a = convert(AbstractVector{T}, a)
+	h = convert(AbstractVector{T}, h)
+	g = convert(AbstractVector{T}, g)
 	return Scatterer(r, a, h, g)
 end
 
-function Scatterer(r::Matrix, a::Vector, h::Real, g::Real)
+function Scatterer(r::AbstractMatrix, a::AbstractVector, h::Real, g::Real)
 	g1 = g * ones(length(a))
 	h1 = h * ones(length(a))
-	return Scatterer(r, a, h1, g1)	
+	return Scatterer(r, a, h1, g1)
 end
 
 function show(io::IO, s::Scatterer)
@@ -46,13 +46,13 @@ end
 
 """
 Return the length of the scatterer (cartesian distance from one end to the other).
-""" 
+"""
 length(s::Scatterer) = norm(s.r[:, 1] - s.r[:, end])
 
 copy(s::Scatterer) = Scatterer(s.r, s.a, s.h, s.g)
 
 """
-Scale the scatterer's size (overall or along a particular dimension) by a 
+Scale the scatterer's size (overall or along a particular dimension) by a
 constant factor.
 
 #### Parameters
@@ -69,12 +69,12 @@ When making a scatterer larger, it is important to make sure it's body has enoug
 segments to accurately represent the shape at the frequencies of interest.
 Specifically, the ratio L / (N λ), where L is the length of the animal, N is the
 number of segments, and λ is the acoustic wavelength, should remain constant, which
-may require interpolating new points between the existing ones. See Conti and 
+may require interpolating new points between the existing ones. See Conti and
 Demer (2006) or Calise and Skaret (2011) for details.
 """
 function rescale(s::Scatterer; scale=1.0, radius=1.0, x=1.0, y=1.0, z=1.0)
 	s = copy(s)
-	M = diagm([x, y, z]) * scale
+	M = diagm(0=>[x, y, z]) * scale
 	s.r = M * s.r
 	s.a = s.a * scale * radius
 	return s
@@ -89,7 +89,7 @@ common situation where you want to change a scatterer to a specific length.
 The scatterer's relative proportions are preserved.
 
 #### Parameters
-- `s` : Scatterer 
+- `s` : Scatterer
 - `len` : Desired length to which the scatterer should be scaled.
 
 #### Returns
@@ -103,7 +103,7 @@ end
 
 """
 Resample a scatterer's measurement points by interpolating between them. Used
-to change the resolution, for instance when increasing the scatterer's body 
+to change the resolution, for instance when increasing the scatterer's body
 size or decreasing the acoustic wavelength.
 
 #### Parameters
@@ -115,8 +115,8 @@ A Scatterer with a different number of body segments.
 """
 function interpolate(s::Scatterer, n)
 	# Length along scatterer's centerline
-	along = [0, cumsum(vec(sqrt(sum(diff(s.r, 2).^2, 1))));]
-	new_along = linspace(0, maximum(along), n)
+	along = [0; cumsum(vec(sqrt(sum(diff(s.r, 2).^2, 1))));]
+	new_along = range(0, stop=maximum(along), length=n)
 	x = interpolate((along,), vec(s.r[1, :]), Gridded(Linear()))[new_along]
 	y = interpolate((along,), vec(s.r[2, :]), Gridded(Linear()))[new_along]
 	z = interpolate((along,), vec(s.r[3, :]), Gridded(Linear()))[new_along]
@@ -142,7 +142,7 @@ The roll, tilt, and yaw refer to rotations around the x, y, and z axes,
 respectively. They are applied in that order.
 """
 function rotate(s::Scatterer; roll=0.0, tilt=0.0, yaw=0.0)
-	roll, tilt, yaw = deg2rad([roll, tilt, yaw])
+	roll, tilt, yaw = deg2rad.([roll, tilt, yaw])
 	Rx = [1 0 0; 0 cos(roll) -sin(roll); 0 sin(roll) cos(roll)]
 	Ry = [cos(tilt) 0 sin(tilt); 0 1 0; -sin(tilt) 0 cos(tilt)]
 	Rz = [cos(yaw) -sin(yaw) 0; sin(yaw) cos(yaw) 0; 0 0 1]
@@ -153,7 +153,7 @@ function rotate(s::Scatterer; roll=0.0, tilt=0.0, yaw=0.0)
 end
 
 function DWBAintegrand(s, rr, aa, gg, hh, k)
-	r = vec(rr[:, 1] + s * diff(rr, 2))
+	r = vec(rr[:, 1] + s * diff(rr, dims=2))
 	a = aa[1] + s * diff(aa)[1]
 	g = gg[1] + s * diff(gg)[1]
 	h = hh[1] + s * diff(hh)[1]
@@ -165,17 +165,17 @@ function DWBAintegrand(s, rr, aa, gg, hh, k)
 	else
 		bessy = besselj1(2.0*norm(k) * a / h * cos(betatilt)) / cos(betatilt)
 	end
-	return (norm(k) / 4.0 * gammagamma * exp(2.0 * im * dot(k,r) / h) * a * 
-		bessy * norm(diff(rr, 2)))
+	return (norm(k) / 4.0 * gammagamma * exp(2.0 * im * dot(k,r) / h) * a *
+		bessy * norm(diff(rr, dims=2)))
 end
 
 scattering_function_param_docs = """
 #### Parameters
 
 - `s` : Scatterer object.
-- `k` : Acoustic wavenumber vector.  Its magnitude is 2 * pi * f / c (where 
+- `k` : Acoustic wavenumber vector.  Its magnitude is 2 * pi * f / c (where
 f is the frequency and c is the sound speed) and it points in
-the direction of propagation.  For downward-propagating sound waves, 
+the direction of propagation.  For downward-propagating sound waves,
 it is [0, 0, -2pi * f / c].
 - `phase_sd` : Standard deviation of the phase variability for each segment (in radians).
 Defaults to 0.0, that is, an ordinary deterministic DWBA.  If > 0, the
@@ -185,7 +185,7 @@ return value will be stochastic (i.e., the SDWBA).
 """
 Calculate the complex-valued form function of a scatterer using the (S)DWBA.
 
-$scattering_function_param_docs 
+$scattering_function_param_docs
 """
 :form_function
 function form_function(s::Scatterer, k::Vector, phase_sd=0.0)
@@ -205,9 +205,9 @@ end
 Calculate the backscattering cross-section (sigma_bs) of a scatterer using the (S)DWBA.
 This is the absolute square of the form function.
 
-$scattering_function_param_docs 
+$scattering_function_param_docs
 """
-function backscatter_xsection{T}(s::Scatterer{T}, k::Vector{T}, phase_sd=0.0)
+function backscatter_xsection(s::Scatterer, k::Vector, phase_sd=0.0)
 	return abs2(form_function(s, k, phase_sd))
 end
 
@@ -217,7 +217,7 @@ Calculate the target strength (TS) of a scatterer using the (S)DWBA.  This is ju
 
 $scattering_function_param_docs
 """
-function target_strength{T}(s::Scatterer{T}, k::Vector{T}, phase_sd=0.0)
+function target_strength(s::Scatterer, k::Vector, phase_sd=0.0)
 	return 10 * log10(backscatter_xsection(s, k, phase_sd))
 end
 
@@ -248,8 +248,8 @@ A dictionary containing elements "angles", "sigma_bs", and "TS",
 each a length-n vector.
 """
 function tilt_spectrum(s::Scatterer, angle1, angle2, k, n=100)
-	angles = linspace(angle1, angle2, n)
-	sigma = zeros(angles)
+	angles = range(angle1, stop=angle2, length=n)
+	sigma = zeros(size(angles))
 	for i in 1:n
 		tilt = angles[i]
 		sigma[i] = backscatter_xsection(rotate(s, tilt=tilt), k)
@@ -273,13 +273,13 @@ Returns: A dictionary containing elements "freqs", "sigma_bs", and "TS",
 	each a length-n vector.
 """
 function freq_spectrum(s::Scatterer, freq1, freq2, sound_speed, n=100)
-	freqs = linspace(freq1, freq2, n)
-	sigma = zeros(freqs)
+	freqs = range(freq1, stop=freq2, length=n)
+	sigma = zeros(size(freqs))
 	for i in 1:n
 		k = [0, 0, -2pi * freqs[i] / sound_speed]
 		sigma[i] = backscatter_xsection(s, k)
 	end
-	TS = 10 * log10(sigma)
+	TS = 10 * log10.(sigma)
 	return Dict([("freqs", freqs), ("sigma_bs", sigma), ("TS", TS)])
 end
 
@@ -287,14 +287,14 @@ end
 Load a scatterer from a file on disk with comma-separated values.
 
 #### Parameters
-- `filename` : String.  Path to the datafile.  This should be a standard .csv file 
+- `filename` : String.  Path to the datafile.  This should be a standard .csv file
 with columns for the x, y, and z coordinates of the scatterer's centerline, as well
 as the `a`, `h`, and `g` arguments to Scatterer().
-- `columns` : Optional dictionary of column names. If the columns do not have the names 
+- `columns` : Optional dictionary of column names. If the columns do not have the names
 - `x`, `y`, `z`, `h`, and `g`, this must be provided.  The keys are the standard column
 names and the values are the actual ones in the file.
 """
-function from_csv(filename, columns=Dict([("x","x"),("y","y"),("z","z"), 
+function from_csv(filename, columns=Dict([("x","x"),("y","y"),("z","z"),
 		("a","a"), ("h","h"), ("g","g")]))
 	data, header = readdlm(filename, ',', header=true)
 	x = data[:, vec(header .== columns["x"])]

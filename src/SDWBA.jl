@@ -1,5 +1,9 @@
 module SDWBA
 
+using QuadGK
+using LinearAlgebra
+using SpecialFunctions
+using DelimitedFiles
 
 export Scatterer,
 	rescale,

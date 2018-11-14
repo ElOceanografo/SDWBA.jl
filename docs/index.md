@@ -24,7 +24,7 @@ Sound-scattering things (e.g. zooplankton) are represented as `Scatterer` object
 To construct a scatterer, we need to specify the 3-D coordinates of its centerline.  The standard orientation is for the animal's body to lie roughly parallel to the x-axis, with the z-axis pointing up.
 
 ```julia
-x = linspace(0, 0.2, 10)
+x = range(0, stop=0.2, length=10)
 y = zeros(x)
 z = zeros(x)
 ```
