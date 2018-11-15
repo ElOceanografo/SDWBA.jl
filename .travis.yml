@@ -4,6 +4,7 @@ os:
   - linux
   - osx
 julia:
+  - 0.7
   - release
   - nightly
 notifications:
@@ -11,4 +12,4 @@ notifications:
 # uncomment the following lines to override the default test script
 script:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
-  - julia -e 'Pkg.clone(pwd()); Pkg.build("SDWBA"); Pkg.test("SDWBA"; coverage=true)'
+  - julia -e 'using Pkg; Pkg.clone(pwd()); Pkg.build("SDWBA"); Pkg.test("SDWBA"; coverage=true)'
