@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.org/ElOceanografo/SDWBA.jl.svg?branch=master)](https://travis-ci.org/ElOceanografo/SDWBA.jl)
 
+[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://ElOceanografo.github.io/SDWBA.jl/stable)
+[![](https://img.shields.io/badge/docs-dev-blue.svg)](https://ElOceanografo.github.io/SDWBA.jl/dev)
+
 [![DOI](https://zenodo.org/badge/21069/ElOceanografo/SDWBA.jl.svg)](https://zenodo.org/badge/latestdoi/21069/ElOceanografo/SDWBA.jl)
 
 This Julia package implements the (stochastic) distorted-wave Born approximation for 
