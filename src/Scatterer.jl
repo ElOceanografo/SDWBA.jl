@@ -16,7 +16,6 @@ in the proper order).
 of sound speed or density inside the scatter to the same quantity in the
 surrounding medium).
 """
-:Scatterer
 mutable struct Scatterer{T}
 	r::AbstractArray{T, 2}
 	a::AbstractArray{T, 1}
@@ -187,7 +186,6 @@ Calculate the complex-valued form function of a scatterer using the (S)DWBA.
 
 $scattering_function_param_docs
 """
-:form_function
 function form_function(s::Scatterer, k::Vector, phase_sd=0.0)
 	fbs = 0 + 0im
 	m, n = size(s.r)

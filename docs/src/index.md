@@ -1,5 +1,8 @@
 # SDWBA
 
+```@contents
+```
+
 This Julia package implements the (stochastic) distorted-wave Born approximation for simple, fluid-like scatterers. The goal is to provide a set of easy-to-use tools to calculate the acoustic backscattering cross-sections of marine organisms using the (stochastic) distorted-wave Born approximation (the DWBA or SWDBA). These models discretize zooplankton or other scatterers as a series of cylindrical sections, and are efficient and accurate for fluid-like organisms, including krill and copepods.
 
 ## Installation
