@@ -13,7 +13,7 @@ models are useful for modeling the acoustic target strengths (TS) of zooplankton
 are needed to convert sonar echoes to estimates of biomass.
 
 
-The full documentation and function reference can be found at [http://sdwbajl.readthedocs.org/en/latest/](http://sdwbajl.readthedocs.org/en/latest/).  A short demo is given below:
+The full documentation and function reference can be found at [here](https://eloceanografo.github.io/SDWBA.jl/dev).  A short demo is given below:
 
 To install and load it, simply run
 
