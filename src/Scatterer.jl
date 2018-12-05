@@ -39,8 +39,8 @@ function Scatterer(r::AbstractMatrix, a::AbstractVector, h::Real, g::Real)
 end
 
 function show(io::IO, s::Scatterer)
-	println("$(typeof(s)) with $(length(s.a)) segments")
-	print("Length $(signif(length(s), 3))")
+	println(io, "$(typeof(s)) with $(length(s.a)) segments")
+	print(io, "Length $(round(length(s), sigdigits=3))")
 end
 
 """
