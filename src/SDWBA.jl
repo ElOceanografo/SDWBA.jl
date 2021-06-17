@@ -3,6 +3,7 @@ module SDWBA
 using QuadGK
 using LinearAlgebra
 using SpecialFunctions
+using BSplineKit
 using DelimitedFiles
 
 export Scatterer,
