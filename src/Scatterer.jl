@@ -17,18 +17,18 @@ of sound speed or density inside the scatter to the same quantity in the
 surrounding medium).
 """
 mutable struct Scatterer{T}
-	r::AbstractArray{T, 2}
-	a::AbstractArray{T, 1}
-	h::AbstractArray{T, 1}
-	g::AbstractArray{T, 1}
+	r::Matrix{T}
+	a::Vector{T}
+	h::Vector{T}
+	g::Vector{T}
 end
 
 function Scatterer(r::AbstractArray, a::AbstractArray, h::AbstractArray, g::AbstractArray)
 	T = Base.promote_eltype(r, a, h, g)
-	r = convert(AbstractMatrix{T}, r)
-	a = convert(AbstractVector{T}, a)
-	h = convert(AbstractVector{T}, h)
-	g = convert(AbstractVector{T}, g)
+	r = convert(Matrix{T}, r)
+	a = convert(Vector{T}, a)
+	h = convert(Vector{T}, h)
+	g = convert(Vector{T}, g)
 	return Scatterer(r, a, h, g)
 end
 
