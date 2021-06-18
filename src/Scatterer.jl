@@ -47,7 +47,6 @@ Return the length of the scatterer (cartesian distance from one end to the other
 """
 bodylength(s::Scatterer) = norm(s.r[:, 1] - s.r[:, end])
 
-copy(s::Scatterer) = Scatterer(s.r, s.a, s.h, s.g)
 
 """
 Scale the scatterer's size (overall or along a particular dimension) by a
@@ -71,7 +70,6 @@ may require interpolating new points between the existing ones. See Conti and
 Demer (2006) or Calise and Skaret (2011) for details.
 """
 function rescale(s::Scatterer; scale=1.0, radius=1.0, x=1.0, y=1.0, z=1.0)
-	s = copy(s)
 	M = diagm(0=>[x, y, z]) * scale
 	r = M * s.r
 	a = s.a * scale * radius
