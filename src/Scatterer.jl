@@ -1,6 +1,5 @@
 import Base: show
 
-
 """
 Construct a data structure describing a fluid-like weak scatterer with a deformed
 cylindrical shape.  This shape is approximated by a series of `N` discrete segments,
@@ -16,14 +15,14 @@ in the proper order).
 of sound speed or density inside the scatter to the same quantity in the
 surrounding medium).
 """
-mutable struct Scatterer{T}
+struct Scatterer{T}
 	r::Matrix{T}
 	a::Vector{T}
 	h::Vector{T}
 	g::Vector{T}
 end
 
-function Scatterer(r::AbstractArray, a::AbstractArray, h::AbstractArray, g::AbstractArray)
+function Scatterer(r::AbstractMatrix, a::AbstractVector, h::AbstractVector, g::AbstractVector)
 	T = Base.promote_eltype(r, a, h, g)
 	r = convert(Matrix{T}, r)
 	a = convert(Vector{T}, a)
@@ -74,9 +73,9 @@ Demer (2006) or Calise and Skaret (2011) for details.
 function rescale(s::Scatterer; scale=1.0, radius=1.0, x=1.0, y=1.0, z=1.0)
 	s = copy(s)
 	M = diagm(0=>[x, y, z]) * scale
-	s.r = M * s.r
-	s.a = s.a * scale * radius
-	return s
+	r = M * s.r
+	a = s.a * scale * radius
+	return Scatterer(r, a, s.h, s.g)
 end
 
 rescale(s::Scatterer, scale) = rescale(s, scale=scale)
@@ -146,9 +145,8 @@ function rotate(s::Scatterer; roll=0.0, tilt=0.0, yaw=0.0)
 	Ry = [cos(tilt) 0 sin(tilt); 0 1 0; -sin(tilt) 0 cos(tilt)]
 	Rz = [cos(yaw) -sin(yaw) 0; sin(yaw) cos(yaw) 0; 0 0 1]
 	R = Rz * Ry * Rx
-	s1 = copy(s)
-	s1.r = R * s1.r
-	return s1
+	r = R * s.r
+	return Scatterer(r, s.a, s.h, s.g)
 end
 
 function DWBAintegrand(s, rr, aa, gg, hh, k)
