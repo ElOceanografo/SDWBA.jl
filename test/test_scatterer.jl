@@ -22,5 +22,5 @@ sandeel = Models.sandeel
 daphnia = Models.daphnia
 
 
-@assert length(rotate(krill1, roll=90, tilt=30, yaw=12)) ≈ length(krill1)
-@assert length(resize(krill1, 0.03)) == 0.03
+@assert bodylength(rotate(krill1, roll=90, tilt=30, yaw=12)) ≈ bodylength(krill1)
+@assert bodylength(resize(krill1, 0.03)) == 0.03

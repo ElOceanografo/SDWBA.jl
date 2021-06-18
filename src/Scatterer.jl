@@ -40,13 +40,13 @@ end
 
 function show(io::IO, s::Scatterer)
 	println(io, "$(typeof(s)) with $(length(s.a)) segments")
-	print(io, "Length $(round(length(s), sigdigits=3))")
+	print(io, "Length $(round(bodylength(s), sigdigits=3))")
 end
 
 """
 Return the length of the scatterer (cartesian distance from one end to the other).
 """
-length(s::Scatterer) = norm(s.r[:, 1] - s.r[:, end])
+bodylength(s::Scatterer) = norm(s.r[:, 1] - s.r[:, end])
 
 copy(s::Scatterer) = Scatterer(s.r, s.a, s.h, s.g)
 
@@ -95,7 +95,7 @@ The scatterer's relative proportions are preserved.
 A resized scatterer.
 """
 function resize(s::Scatterer, len)
-	L0 = length(s)
+	L0 = bodylength(s)
 	return rescale(s, len / L0)
 end
 
