@@ -183,7 +183,7 @@ Calculate the complex-valued form function of a scatterer using the (S)DWBA.
 $scattering_function_param_docs
 """
 function form_function(s::Scatterer, k::Vector, phase_sd=0.0)
-	fbs = 0 + 0im
+	fbs = 0.0 + 0.0im
 	m, n = size(s.r)
 
 	for i in 1:(n-1)
