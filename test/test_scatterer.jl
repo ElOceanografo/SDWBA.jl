@@ -13,6 +13,7 @@ weird_zoop = Scatterer(r, a, h, g)
 werid_zoop = Scatterer(r, a, 1.02, 1.04)
 werid_zoop = Scatterer(r, a, 1.02, 1)
 
+weird_zoop2 = DeformedCylinder(x, y, z, a, g, h)
 
 # Make sure all models load
 krill1 = Models.krill_mcgeehee

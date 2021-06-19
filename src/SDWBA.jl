@@ -6,7 +6,9 @@ using SpecialFunctions
 using BSplineKit
 using DelimitedFiles
 
-export Scatterer,
+export AbstractScatterer,
+	Scatterer,
+	DeformedCylinder,
 	rescale,
 	resize,
 	interpolate,

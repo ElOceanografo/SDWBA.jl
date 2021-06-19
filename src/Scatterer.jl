@@ -1,5 +1,7 @@
 import Base: show
 
+abstract type AbstractScatterer end
+
 """
 Construct a data structure describing a fluid-like weak scatterer with a deformed
 cylindrical shape.  This shape is approximated by a series of `N` discrete segments,
@@ -15,7 +17,7 @@ in the proper order).
 of sound speed or density inside the scatter to the same quantity in the
 surrounding medium).
 """
-struct Scatterer{T}
+struct Scatterer{T} <: AbstractScatterer
 	r::Matrix{T}
 	a::Vector{T}
 	h::Vector{T}
@@ -41,6 +43,62 @@ function show(io::IO, s::Scatterer)
 	println(io, "$(typeof(s)) with $(length(s.a)) segments")
 	print(io, "Length $(round(bodylength(s), sigdigits=3))")
 end
+
+
+struct DeformedCylinder{S,Tm,T} <: AbstractScatterer
+	x::S
+	y::S
+	z::S
+	a::S
+	h::Tm
+	g::Tm
+	R::Matrix{T} # rotation matrix to apply to k
+end
+
+function DeformedCylinder(x, y, z, a, g, h; R=diagm(ones(3)), splineorder=3) 
+	s = [0; cumsum(sqrt.(diff(x).^2 + diff(y).^2 + diff(z).^2))]
+	x = BSplineKit.interpolate(s, x, BSplineOrder(splineorder))
+	y = BSplineKit.interpolate(s, y, BSplineOrder(splineorder))
+	z = BSplineKit.interpolate(s, z, BSplineOrder(splineorder))
+	a = BSplineKit.interpolate(s, a, BSplineOrder(splineorder))
+	h = BSplineKit.interpolate(s, h, BSplineOrder(splineorder))
+	g = BSplineKit.interpolate(s, g, BSplineOrder(splineorder))
+	return DeformedCylinder(x, y, z, a, g, h, R)
+end
+
+function show(io::IO, dc::DeformedCylinder)
+	io1 = IOBuffer()
+	print(io1, basis(dc.x))
+	basis_text = String(take!(io1))
+	println(io, "DeformedCylinder with $basis_text")
+end
+
+function dwba_integrand(dc::DeformedCylinder, s, k)
+	r = [dc.x(s), dc.y(s), dc.z(s)]
+	a = dc.a(s)
+	g = dc.g(s)
+	h = dc.h(s)
+	αtilt = acos(dot(k, r) / (norm(k) * norm(r)))
+	βtilt = abs(αtilt - pi/2.0)
+	γ = 1.0 / (g * h^2.0) + 1 / g - 2.0
+	if abs(abs(βtilt) - pi/2.0) < 1e-10
+		bessy = norm(k) * a / h
+	else
+		bessy = besselj1(2.0*norm(k) * a / h * cos(βtilt)) / cos(βtilt)
+	end
+	return norm(k) / 4.0γ * exp(2.0im * dot(k, r) / h) * a * bessy
+end
+
+function form_function(dc::DeformedCylinder, k; rtol=0.01, kwargs...)
+	lo, hi = boundaries(basis(dc.x))
+	int, err = quadgk(s -> dwba_integrand(dc, s, k), lo, hi, rtol=rtol, kwargs...)
+	return int
+end
+backscatter_xsection(dc::DeformedCylinder, k; kwargs...) = abs2(form_function(dc, k; kwargs...))
+target_strength(dc::DeformedCylinder, k; kwargs...) = 10log10(backscatter_xsection(dc, k; kwargs...))
+
+
+
 
 """
 Return the length of the scatterer (cartesian distance from one end to the other).
@@ -201,7 +259,7 @@ This is the absolute square of the form function.
 
 $scattering_function_param_docs
 """
-function backscatter_xsection(s::Scatterer, k::Vector, phase_sd=0.0)
+function backscatter_xsection(s::Scatterer, k::Vector, phase_sd::Real=0.0)
 	return abs2(form_function(s, k, phase_sd))
 end
 
