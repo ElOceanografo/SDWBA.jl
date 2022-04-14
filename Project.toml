@@ -5,7 +5,6 @@ repo = "https://github.com/ElOceanografo/SDWBA.jl.git"
 version = "1.2.2"
 
 [deps]
-ApproxFun = "28f2ccd6-bb30-5033-b560-165f7b14dc2f"
 BSplineKit = "093aae92-e908-43d7-9660-e50ee39d5a0a"
 DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
 FastGaussQuadrature = "442a2c76-b920-505d-bb47-c5924d526838"
@@ -16,7 +15,6 @@ Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [compat]
 BSplineKit = "0.7, 0.8, 0.11"
-ApproxFun = "0.12, 0.13"
 FastGaussQuadrature = "0.4"
 QuadGK = "2"
 SpecialFunctions = "1, 2"
