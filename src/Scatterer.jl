@@ -306,7 +306,7 @@ function tilt_spectrum(s::Scatterer, angle1, angle2, k, n=100)
 		tilt = angles[i]
 		sigma[i] = backscatter_xsection(rotate(s, tilt=tilt), k)
 	end
-	TS = 10 * log10(sigma)
+	TS = 10 * log10.(sigma)
 	return Dict([("angles", angles), ("sigma_bs", sigma), ("TS", TS)])
 end
 
