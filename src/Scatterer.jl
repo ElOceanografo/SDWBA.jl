@@ -168,15 +168,15 @@ size or decreasing the acoustic wavelength.
 A Scatterer with a different number of body segments.
 """
 function interpolate(s::Scatterer, n)
-	# Length along scatterer's centerline
+	# length along scatterer's centerline
 	along = [0; cumsum(vec(sqrt.(sum(diff(s.r, dims=2).^2, dims=1))));]
 	new_along = range(0, stop=maximum(along), length=n)
-	x = interpolate((along,), vec(s.r[1, :]), Gridded(Linear()))[new_along]
-	y = interpolate((along,), vec(s.r[2, :]), Gridded(Linear()))[new_along]
-	z = interpolate((along,), vec(s.r[3, :]), Gridded(Linear()))[new_along]
-	a = interpolate((along,), s.a, Gridded(Linear()))[new_along]
-	h = interpolate((along,), s.h, Gridded(Linear()))[new_along]
-	g = interpolate((along,), s.g, Gridded(Linear()))[new_along]
+	x = BSplineKit.interpolate(along, vec(s.r[1, :]), BSplineOrder(4)).(new_along)
+	y = BSplineKit.interpolate(along, vec(s.r[2, :]), BSplineOrder(4)).(new_along)
+	z = BSplineKit.interpolate(along, vec(s.r[3, :]), BSplineOrder(4)).(new_along)
+	a = BSplineKit.interpolate(along, s.a, BSplineOrder(4)).(new_along)
+	h = BSplineKit.interpolate(along, s.h, BSplineOrder(4)).(new_along)
+	g = BSplineKit.interpolate(along, s.g, BSplineOrder(4)).(new_along)
 	r = [x'; y'; z']
 	return Scatterer(r, a, h, g)
 end
