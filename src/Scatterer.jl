@@ -169,7 +169,7 @@ A Scatterer with a different number of body segments.
 """
 function interpolate(s::Scatterer, n)
 	# Length along scatterer's centerline
-	along = [0; cumsum(vec(sqrt(sum(diff(s.r, dims=2).^2, dims=1))));]
+	along = [0; cumsum(vec(sqrt.(sum(diff(s.r, dims=2).^2, dims=1))));]
 	new_along = range(0, stop=maximum(along), length=n)
 	x = interpolate((along,), vec(s.r[1, :]), Gridded(Linear()))[new_along]
 	y = interpolate((along,), vec(s.r[2, :]), Gridded(Linear()))[new_along]
