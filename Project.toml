@@ -2,7 +2,7 @@ name = "SDWBA"
 uuid = "a56d74ad-8193-5df7-a216-96cccc48f97a"
 auors = ["Sam Urmy <oceanographerschoice@gmail.com>"]
 repo = "https://github.com/ElOceanografo/SDWBA.jl.git"
-version = "1.2.10"
+version = "1.2.11"
 
 [deps]
 BSplineKit = "093aae92-e908-43d7-9660-e50ee39d5a0a"
