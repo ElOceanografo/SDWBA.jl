@@ -1,6 +1,6 @@
 name = "SDWBA"
 uuid = "a56d74ad-8193-5df7-a216-96cccc48f97a"
-version = "1.2.11"
+version = "1.2.12"
 auors = ["Sam Urmy <oceanographerschoice@gmail.com>"]
 repo = "https://github.com/ElOceanografo/SDWBA.jl.git"
 
