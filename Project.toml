@@ -1,8 +1,8 @@
 name = "SDWBA"
 uuid = "a56d74ad-8193-5df7-a216-96cccc48f97a"
+version = "1.2.11"
 auors = ["Sam Urmy <oceanographerschoice@gmail.com>"]
 repo = "https://github.com/ElOceanografo/SDWBA.jl.git"
-version = "1.2.11"
 
 [deps]
 BSplineKit = "093aae92-e908-43d7-9660-e50ee39d5a0a"
@@ -14,7 +14,7 @@ SpecialFunctions = "276daf66-3868-5448-9aa4-cd146d93841b"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [compat]
-BSplineKit = "0.7, 0.8, 0.11, 0.12, 0.14, 0.16, 0.17"
+BSplineKit = "0.7, 0.8, 0.11, 0.12, 0.14, 0.16, 0.17, 0.19"
 DelimitedFiles = "1"
 FastGaussQuadrature = "0.4, 0.5, 1"
 QuadGK = "2"
